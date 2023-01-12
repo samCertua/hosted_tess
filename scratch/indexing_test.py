@@ -5,16 +5,27 @@ import pinecone
 import uuid
 import pickle
 from typing import List
+from transformers import GPT2TokenizerFast
 
 openai.api_key = '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'
 
-def doc_chunker(doc_text)->List:
+
+def doc_chunker(doc_text, chunk_size, overlap) -> List:
     '''
     Split a document into chunks. Currently just breaks on characters. In future it would be good to upgrade to sentences
     or paragraphs
     '''
-    chunks = textwrap.wrap(doc_text,2000)
+    # chunks = textwrap.wrap(doc_text,2000)
+    tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
+    tokens = tokenizer.encode(doc_text)
+    chunks = []
+    i = 0
+    while i + chunk_size < len(tokens):
+        chunks.append(tokenizer.decode(tokens[i:i + chunk_size]))
+        i += chunk_size - overlap
+    chunks.append(tokenizer.decode(tokens[i:]))
     return chunks
+
 
 # def summarise_doc(chunks, context):
 #     initial_chunk_context = "Summarize the following start of a  "+context+":\n"+chunks[0]
@@ -46,7 +57,7 @@ def init_pinecone(embedding_size):
 
 
 def add_context(chunks, context):
-    return [context+c for c in chunks]
+    return [context + c for c in chunks]
 
 
 def embed(chunks):
@@ -62,7 +73,8 @@ def embed(chunks):
         embedded_chunks.append(response['data'][0]['embedding'])
     return embedded_chunks
 
-def create_structures(chunks, embedded_chunks):
+
+def create_structures(chunks, embedded_chunks, chunk_metadata):
     '''
     Create a dictionary of chunks of texts indexed by guuids and a list of guuid chunk embedding tuples to be used
     by pinecone. The guuids link the chunks of text to their embeddings.
@@ -70,20 +82,22 @@ def create_structures(chunks, embedded_chunks):
     ids = [str(uuid.uuid4()) for i in range(len(chunks))]
     chunks_dict = {}
     embedding_tuples = []
-    for i,c,e in zip(ids, chunks, embedded_chunks):
+    for i, c, e, m in zip(ids, chunks, embedded_chunks, chunk_metadata):
         chunks_dict[i] = c
-        embedding_tuples.append((i,e))
+        embedding_tuples.append((i, e, m))
     return chunks_dict, embedding_tuples
+
 
 def build_gpt_query(paragraphs, query):
     '''
     Add the paragraphs most relevant to the query and a query to a message to be sent to GPT
     '''
-    gpt_query = "Using only the exerts and their given context, answer the query.\n"
+    gpt_query = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure.\n"
     for i in range(len(paragraphs)):
-        gpt_query+=f'Exert {paragraphs[i]}:\n'
+        gpt_query += f'Exert {paragraphs[i]}:\n'
     gpt_query += f'Query: {query}'
     return gpt_query
+
 
 def populate_pinecone():
     '''
@@ -91,45 +105,68 @@ def populate_pinecone():
     a dictionary to retrieve the source text
     '''
     all_chunks = []
+    chunk_metadata = []
     for f in os.listdir('./data'):
-        with open(f'./data/{f}/{f}.txt','r', encoding='utf-8') as fp:
+        with open(f'./data/{f}/{f}.txt', 'r', encoding='utf-8') as fp:
             text = fp.read()
         context = f'The following is an exert from a document outlining terms and conditions for a life insurance product from the distributor {f}:\n'
-        chunks = doc_chunker(text)
+        chunks = doc_chunker(text, 500, 150)
         chunks = add_context(chunks, context)
         all_chunks.extend(chunks)
+        chunk_metadata.extend([{"distributor": f} for c in chunks])
     embedded_chunks = embed(all_chunks)
-    chunks_dict, embedding_tuples = create_structures(all_chunks, embedded_chunks)
+    chunks_dict, embedding_tuples = create_structures(all_chunks, embedded_chunks, chunk_metadata)
     index = init_pinecone(len(embedded_chunks[0]))
     index.upsert(embedding_tuples)
-    with open('chunk_dictionary.json','wb') as fp:
+    with open('chunk_dictionary.json', 'wb') as fp:
         pickle.dump(chunks_dict, fp)
     return chunks_dict, index
 
+
+def distributor_matches(index, query, distributors, number_of_results):
+    results = []
+    for d in distributors:
+        matches = index.query(
+            vector=query,
+            top_k=1,
+            include_metadata=True,
+            filter={
+                "distributor": {"$eq": d}
+            },
+        )["matches"]
+        results.append(matches[0])
+    results = sorted(results, key=lambda d: d['score'], reverse=True)
+    return results[:number_of_results]
+
+
 def main():
     # chunks_dict, index = populate_pinecone()
-    with open('chunk_dictionary.json','rb') as fp:
+    with open('chunk_dictionary.json', 'rb') as fp:
         chunks_dict = pickle.load(fp)
     pinecone.init(
         api_key="f8218bce-402b-4477-9938-d0650af14101"
     )
     index = pinecone.Index('openai')
+    distributors = os.listdir('./data')
     query = input()
-    while query!="exit":
+    while query != "exit":
         embedded_query = openai.Embedding.create(
-                input=query,
-                model="text-embedding-ada-002"
-            )['data'][0]['embedding']
-        matches = index.query(
-            vector=embedded_query,
-            top_k=5
-        )["matches"]
+            input=query,
+            model="text-embedding-ada-002"
+        )['data'][0]['embedding']
+        # matches = index.query(
+        #     vector=embedded_query,
+        #     top_k=5,
+        #     include_metadata=True
+        # )["matches"]
+        matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
         paragraphs = [chunks_dict[i["id"]] for i in matches]
         gpt_query = build_gpt_query(paragraphs, query)
-        response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0, max_tokens = 1000)
+        response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0.2, max_tokens=500)
         print(response["choices"][0].text)
         query = input()
     pass
+
 
 if __name__ == '__main__':
     main()
