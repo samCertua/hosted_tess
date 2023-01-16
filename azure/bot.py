@@ -48,4 +48,5 @@ class MyBot(ActivityHandler):
     ):
         for member_added in members_added:
             if member_added.id != turn_context.activity.recipient.id:
+                print("Hello and welcome! I'm Tess, you're new financial advisor.")
                 await turn_context.send_activity("Hello and welcome! I'm Tess, you're new financial advisor.")
