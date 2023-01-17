@@ -17,26 +17,41 @@ if 'generated' not in st.session_state:
 if 'past' not in st.session_state:
     st.session_state['past'] = []
 
+
 def query(payload):
-	response = requests.post("http://localhost:8501/", json=payload)
-	return response.json()
+    response = requests.post("http://localhost:8501/", json=payload)
+    return response.json()
+
 
 def get_text():
     input_text = st.text_input("You: ", key="input")
     return input_text
 
+chat = st.container()
+with chat:
+    message("Hi, I'm Tess. I will answer questions about policy documents.")
 
-user_input = get_text()
 
-if user_input:
-    output = ask_tess( user_input)
+with st.form("form", clear_on_submit=True) as f:
+    user_input = get_text()
+    submitted = st.form_submit_button("Send")
+    if submitted:
+        output = ask_tess(user_input)
+        st.session_state.past.append(user_input)
+        st.session_state.generated.append(output)
 
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
+# user_input = get_text()
+#
+# if user_input:
+#     output = ask_tess(user_input)
+#
+#     st.session_state.past.append(user_input)
+#     st.session_state.generated.append(output)
 
 if st.session_state['generated']:
 
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-message("Hi, I'm Tess. I will answer questions about policy documents.")
+    for i in range(len(st.session_state['generated'])):
+        with chat:
+            message(st.session_state["generated"][i], key=str(i))
+            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+
