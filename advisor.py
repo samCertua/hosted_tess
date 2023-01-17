@@ -10,12 +10,12 @@ from langchain.prompts import PromptTemplate
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
 
-st.set_page_config(
-    page_title="Tess",
-    page_icon=":robot:"
-)
+# st.set_page_config(
+#     page_title="Tess",
+#     page_icon=":robot:"
+# )
 
-st.header("Streamlit Chat - Demo")
+st.header("Tess - advice")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []

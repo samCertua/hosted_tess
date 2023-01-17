@@ -12,7 +12,7 @@ st.set_page_config(
     page_icon=":robot:"
 )
 
-st.header("Streamlit Chat - Demo")
+st.header("Tess")
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
