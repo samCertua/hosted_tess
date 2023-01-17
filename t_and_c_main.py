@@ -5,7 +5,7 @@ from streamlit_chat import message
 import requests
 from t_and_c import ask_tess
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
 st.set_page_config(
     page_title="Streamlit Chat - Demo",
