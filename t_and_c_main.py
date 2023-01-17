@@ -8,7 +8,7 @@ from t_and_c import ask_tess
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
 st.set_page_config(
-    page_title="Streamlit Chat - Demo",
+    page_title="Tess",
     page_icon=":robot:"
 )
 
