@@ -33,7 +33,8 @@ if 'profile' not in st.session_state:
 def gen_context():
     return "You are an AI expert financial advisor talking to " +st.session_state["profile"]+\
            "They are looking for financial advice" \
-           "to secure them and their families' future. Respond to the human as and expert financial advisor, and don't write inputs for them:\n" \
+           "to secure them and their families' future. Respond to the human as and expert financial advisor," \
+           " don't write inputs for them, and use the information provided about them:\n" \
            "{history}\n" \
            "Human:{human_input}\n" \
            "AI:"
