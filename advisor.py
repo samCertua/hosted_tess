@@ -34,7 +34,7 @@ if 'profile' not in st.session_state:
 def gen_context():
     return "You are an AI expert financial advisor talking to " +st.session_state["profile"]+\
            "They are looking for financial advice" \
-           "to secure them and their families' future. Respond to the human as and expert financial advisor, and don't writ inputs for them:\n" \
+           "to secure them and their families' future. Respond to the human as and expert financial advisor, and don't write inputs for them:\n" \
            "{history}\n" \
            "Human:{human_input}\n" \
            "AI:"
@@ -78,8 +78,8 @@ c_input = context.text_area("Describe a user", value = st.session_state["profile
 
 
 with chat:
-    message("Context (what the bot is being told): ")
-    message(gen_context())
+    # message("Context (what the bot is being told): ")
+    # message(gen_context())
     message("Hi, I'm your new financial advisor. How can I help you")
 
 
