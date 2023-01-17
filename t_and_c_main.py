@@ -1,8 +1,11 @@
 import pyarrow.lib
+import os
 import streamlit as st
 from streamlit_chat import message
 import requests
 from t_and_c import ask_tess
+
+os.environ['OPENAI_API_KEY'] = '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'
 
 st.set_page_config(
     page_title="Streamlit Chat - Demo",
@@ -29,7 +32,7 @@ def get_text():
 
 chat = st.container()
 with chat:
-    message("Hi, I'm Tess. I will answer questions about policy documents.")
+    message("Hi, I'm Tess. I will answer questions about policy documents for assurity, bequest, golden charter, and money for them.")
 
 
 with st.form("form", clear_on_submit=True) as f:

@@ -7,7 +7,7 @@ from langchain.chains.conversation.memory import ConversationalBufferWindowMemor
 from langchain import OpenAI
 from langchain.prompts import PromptTemplate
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 
 st.set_page_config(
