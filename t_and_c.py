@@ -130,7 +130,7 @@ def distributor_matches(index, query, distributors, number_of_results):
     # print(query)
     # print(distributors)
     for d in distributors:
-        # print(d)
+        print(d)
         matches = index.query(
             vector=query,
             top_k=1,
@@ -139,6 +139,7 @@ def distributor_matches(index, query, distributors, number_of_results):
                 "distributor": {"$eq": d}
             },
         )["matches"]
+        print(matches)
         results.append(matches[0])
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]

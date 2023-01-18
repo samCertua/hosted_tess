@@ -7,7 +7,7 @@ import pickle
 from typing import List
 from transformers import GPT2TokenizerFast
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 
 def doc_chunker(doc_text, chunk_size, overlap) -> List:
@@ -140,7 +140,7 @@ def distributor_matches(index, query, distributors, number_of_results):
 
 
 def main():
-    # chunks_dict, index = populate_pinecone()
+    chunks_dict, index = populate_pinecone()
     with open('chunk_dictionary.json', 'rb') as fp:
         chunks_dict = pickle.load(fp)
     pinecone.init(

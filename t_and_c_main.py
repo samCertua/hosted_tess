@@ -8,7 +8,10 @@ import pinecone
 import pickle
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
-# initialised = populate_pinecone()
+
+if 'initialised' not in st.session_state:
+    populate_pinecone()
+    st.session_state['initialised'] = True
 
 st.set_page_config(
     page_title="Tess",
@@ -25,12 +28,13 @@ if 'past' not in st.session_state:
 if 'chunks_dict' not in st.session_state:
     with open('scratch/chunk_dictionary.json', 'rb') as fp:
         st.session_state['chunks_dict'] = pickle.load(fp)
-    print(st.session_state['chunks_dict'])
+    # print(st.session_state['chunks_dict'])
 
 if 'index' not in st.session_state:
     pinecone.init(
         api_key=st.secrets["pinecone"]
     )
+    print(pinecone.Index('openai').describe_index_stats())
     st.session_state["index"] = pinecone.Index('openai')
 
 if 'distributors' not in st.session_state:

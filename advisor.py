@@ -6,6 +6,10 @@ from langchain import LLMChain
 from langchain.chains.conversation.memory import ConversationalBufferWindowMemory
 from langchain import OpenAI
 from langchain.prompts import PromptTemplate
+import uuid
+import datetime
+import sqlalchemy
+from urllib.parse import quote_plus
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
@@ -16,6 +20,9 @@ os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 # )
 
 st.header("Tess - advice")
+
+if 'session_id' not in st.session_state:
+    st.session_state["session_id"] = uuid.uuid4()
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -32,7 +39,7 @@ if 'profile' not in st.session_state:
 
 def gen_context():
     return "You are an AI expert financial advisor talking to " +st.session_state["profile"]+\
-           "They are looking for financial advice" \
+           "They are looking for financial advice " \
            "to secure them and their families' future. Respond to the human as an expert financial advisor," \
            " don't write inputs for them, use the information provided about them, and explain " \
            "your reasoning/calculations:\n" \
@@ -76,7 +83,18 @@ def update_profile():
 
 c_input = context.text_area("Describe a user", value = st.session_state["profile"],max_chars=2048, on_change=update_profile, key="profile_area")
 
-
+def log_interaction(id, session_id, service, timestamp, context, message, response):
+    host = st.secrets["db_url"]
+    user = st.secrets["db_user"]
+    password = st.secrets["db_password"]
+    db_name = st.secrets["db_name"]
+    password_cleaned_host = "postgresql://" + user + ":%s@" + host + "/" + db_name
+    url = password_cleaned_host % quote_plus(password)
+    engine = sqlalchemy.create_engine(url)
+    conn = engine.connect()
+    query = f'INSERT INTO playground.tess_logging (id, session_id, service, timestamp, context, message, response) ' \
+            f'VALUES  (%s, %s, %s, TIMESTAMP %s, %s, %s, %s)'
+    result = conn.execute(query, (id, session_id, service, timestamp, context, message, response))
 
 with chat:
     # message("Context (what the bot is being told): ")
@@ -104,6 +122,8 @@ with st.form("form", clear_on_submit=True) as f:
         output = advisor_conversation(user_input)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
+        log_interaction(id=uuid.uuid4(), session_id=st.session_state["session_id"], service="Advisor",
+            timestamp=datetime.datetime.now(), context=gen_context(), message=user_input, response=output)
 
 # if user_input:
 #     output = advisor_conversation(user_input)
