@@ -8,14 +8,7 @@ import pinecone
 import pickle
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
-chunks_dict, index = populate_pinecone()
-with open('scratch/chunk_dictionary.json', 'rb') as fp:
-    chunks_dict = pickle.load(fp)
-pinecone.init(
-    api_key=st.secrets["pinecone"]
-)
-index = pinecone.Index('openai')
-distributors = os.listdir('./scratch/data')
+# initialised = populate_pinecone()
 
 st.set_page_config(
     page_title="Tess",
@@ -28,6 +21,21 @@ if 'generated' not in st.session_state:
 
 if 'past' not in st.session_state:
     st.session_state['past'] = []
+
+if 'chunks_dict' not in st.session_state:
+    with open('scratch/chunk_dictionary.json', 'rb') as fp:
+        st.session_state['chunks_dict'] = pickle.load(fp)
+    print(st.session_state['chunks_dict'])
+
+if 'index' not in st.session_state:
+    pinecone.init(
+        api_key=st.secrets["pinecone"]
+    )
+    st.session_state["index"] = pinecone.Index('openai')
+
+if 'distributors' not in st.session_state:
+    st.session_state["distributors"] = os.listdir('./scratch/data')
+    print(st.session_state["distributors"])
 
 
 def query(payload):
@@ -48,7 +56,7 @@ with st.form("form", clear_on_submit=True) as f:
     user_input = get_text()
     submitted = st.form_submit_button("Send")
     if submitted:
-        output = ask_tess(user_input, index, distributors, chunks_dict)
+        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
 
