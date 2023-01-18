@@ -4,12 +4,21 @@ import streamlit as st
 from streamlit_chat import message
 import requests
 from t_and_c import ask_tess
+import pinecone
+import pickle
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
+with open('scratch/chunk_dictionary.json', 'rb') as fp:
+    chunks_dict = pickle.load(fp)
+pinecone.init(
+    api_key=st.secrets["pinecone"]
+)
+index = pinecone.Index('openai')
+distributors = os.listdir('./scratch/data')
+
 st.set_page_config(
     page_title="Tess",
-    page_icon=":robot:"
 )
 
 st.header("Tess")
@@ -39,7 +48,7 @@ with st.form("form", clear_on_submit=True) as f:
     user_input = get_text()
     submitted = st.form_submit_button("Send")
     if submitted:
-        output = ask_tess(user_input)
+        output = ask_tess(user_input, index, distributors, chunks_dict)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
 

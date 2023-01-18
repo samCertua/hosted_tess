@@ -139,17 +139,7 @@ def distributor_matches(index, query, distributors, number_of_results):
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]
 
-with open('scratch/chunk_dictionary.json', 'rb') as fp:
-    chunks_dict = pickle.load(fp)
-pinecone.init(
-    api_key=st.secrets["pinecone"]
-)
-index = pinecone.Index('openai')
-distributors = os.listdir('./scratch/data')
-print(distributors)
-print(chunks_dict)
-
-def ask_tess(query):
+def ask_tess(query, index, distributors, chunks_dict):
     embedded_query = openai.Embedding.create(
         input=query,
         model="text-embedding-ada-002"
