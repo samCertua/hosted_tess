@@ -46,7 +46,7 @@ def init_pinecone(embedding_size):
     :return: A pinecone index object
     '''
     pinecone.init(
-        api_key="f8218bce-402b-4477-9938-d0650af14101"
+        api_key=st.secrets["pinecone"]
     )
     if 'openai' not in pinecone.list_indexes():
         pinecone.create_index('openai', dimension=embedding_size)
