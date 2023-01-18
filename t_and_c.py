@@ -127,6 +127,7 @@ def populate_pinecone():
 def distributor_matches(index, query, distributors, number_of_results):
     results = []
     for d in distributors:
+        print(d)
         matches = index.query(
             vector=query,
             top_k=1,
