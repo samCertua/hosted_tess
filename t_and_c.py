@@ -107,8 +107,8 @@ def populate_pinecone():
     '''
     all_chunks = []
     chunk_metadata = []
-    for f in os.listdir('./data'):
-        with open(f'./data/{f}/{f}.txt', 'r', encoding='utf-8') as fp:
+    for f in os.listdir('./scratch/data'):
+        with open(f'./scratch/data/{f}/{f}.txt', 'r', encoding='utf-8') as fp:
             text = fp.read()
         context = f'The following is an exert from a document outlining terms and conditions for a life insurance product from the distributor {f}:\n'
         chunks = doc_chunker(text, 500, 150)
@@ -119,7 +119,7 @@ def populate_pinecone():
     chunks_dict, embedding_tuples = create_structures(all_chunks, embedded_chunks, chunk_metadata)
     index = init_pinecone(len(embedded_chunks[0]))
     index.upsert(embedding_tuples)
-    with open('chunk_dictionary.json', 'wb') as fp:
+    with open('./scratch/chunk_dictionary.json', 'wb') as fp:
         pickle.dump(chunks_dict, fp)
     return chunks_dict, index
 
