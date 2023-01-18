@@ -3,12 +3,12 @@ import os
 import streamlit as st
 from streamlit_chat import message
 import requests
-from t_and_c import ask_tess
+from t_and_c import ask_tess, populate_pinecone
 import pinecone
 import pickle
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
-
+chunks_dict, index = populate_pinecone()
 with open('scratch/chunk_dictionary.json', 'rb') as fp:
     chunks_dict = pickle.load(fp)
 pinecone.init(
