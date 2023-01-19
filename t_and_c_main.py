@@ -9,9 +9,9 @@ import pickle
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
-if 'initialised' not in st.session_state:
-    populate_pinecone()
-    st.session_state['initialised'] = True
+# if 'initialised' not in st.session_state:
+#     populate_pinecone()
+#     st.session_state['initialised'] = True
 
 st.set_page_config(
     page_title="Tess",

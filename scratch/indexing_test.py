@@ -6,8 +6,9 @@ import uuid
 import pickle
 from typing import List
 from transformers import GPT2TokenizerFast
+import streamlit as st
 
-openai.api_key = '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'
+openai.api_key = st.secrets["openai"]
 
 
 def doc_chunker(doc_text, chunk_size, overlap) -> List:
