@@ -37,8 +37,8 @@ if 'profile' not in st.session_state:
            "£2000 a year on health insurance. Other expenses include gambling and the gym."
 
 
-def gen_context():
-    return "You are an AI expert financial advisor talking to " +st.session_state["profile"]+\
+def gen_context(profile):
+    return "You are an AI expert financial advisor talking to " +profile+\
            "They are looking for financial advice " \
            "to secure them and their families' future. Respond to the human as an expert financial advisor," \
            " don't write inputs for them, use the information provided about them, and explain " \
@@ -50,7 +50,7 @@ def gen_context():
 
 prompt = PromptTemplate(
     input_variables=["history", "human_input"],
-    template=gen_context(),
+    template=gen_context(st.session_state["profile"]),
 )
 
 if "chain" not in st.session_state:
@@ -71,7 +71,7 @@ def update_profile():
     st.session_state['past'] = []
     prompt = PromptTemplate(
         input_variables=["history", "human_input"],
-        template=gen_context(),
+        template=gen_context(st.session_state["profile"]),
     )
     st.session_state["chain"] = LLMChain(
         llm=OpenAI(temperature=0),
@@ -92,9 +92,9 @@ def log_interaction(id, session_id, service, timestamp, context, message, respon
     url = password_cleaned_host % quote_plus(password)
     engine = sqlalchemy.create_engine(url)
     conn = engine.connect()
-    query = f'INSERT INTO playground.tess_logging (id, session_id, service, timestamp, context, message, response) ' \
-            f'VALUES  (%s, %s, %s, TIMESTAMP %s, %s, %s, %s)'
-    result = conn.execute(query, (id, session_id, service, timestamp, context, message, response))
+    query = f'INSERT INTO playground.tess_logging (id, session_id, service, timestamp, prompt, profile, message, response) ' \
+            f'VALUES  (%s, %s, %s, TIMESTAMP %s, %s, %s, %s, %s)'
+    result = conn.execute(query, (id, session_id, service, timestamp, gen_context("<profile>"), st.session_state["profile"], message, response))
 
 with chat:
     # message("Context (what the bot is being told): ")
@@ -123,7 +123,7 @@ with st.form("form", clear_on_submit=True) as f:
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
         log_interaction(id=uuid.uuid4(), session_id=st.session_state["session_id"], service="Advisor",
-            timestamp=datetime.datetime.now(), context=gen_context(), message=user_input, response=output)
+            timestamp=datetime.datetime.now(), context=gen_context(st.session_state["profile"]), message=user_input, response=output)
 
 # if user_input:
 #     output = advisor_conversation(user_input)
