@@ -72,7 +72,7 @@ def log_interaction(id, session_id, service, timestamp, prompt, profile, message
     url = password_cleaned_host % quote_plus(password)
     engine = sqlalchemy.create_engine(url)
     conn = engine.connect()
-    query = f'INSERT INTO playground.tess_logging (id, session_id, service, timestamp, prompt, profile, message, response) ' \
+    query = f'INSERT INTO public.tess_logging (id, session_id, service, timestamp, prompt, profile, message, response) ' \
             f'VALUES  (%s, %s, %s, TIMESTAMP %s, %s, %s, %s, %s)'
     result = conn.execute(query, (id, session_id, service, timestamp, prompt, profile, message, response))
 
