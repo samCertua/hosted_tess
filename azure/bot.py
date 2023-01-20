@@ -25,7 +25,7 @@ def advisor_conversation(context: str, query):
         template=context,
     )
     chat_chain = LLMChain(
-        llm=OpenAI(temperature=0),
+        llm=OpenAI(temperature=0.2),
         prompt=prompt,
         # verbose=True,
         memory=ConversationalBufferWindowMemory(k=2),
