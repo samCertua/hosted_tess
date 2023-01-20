@@ -3,7 +3,7 @@ from streamlit_chat import message
 import requests
 import os
 import uuid
-from advisors import Advisor, AdvisorCritic
+from advisors import Advisor, AdvisorCritic, AdvisorFewShot
 from threading import Thread
 from multiprocessing import Queue
 from logging_util import logging_thread
@@ -54,19 +54,21 @@ def update_profile():
     st.session_state["profile"] = st.session_state["profile_area"]
     st.session_state['generated'] = []
     st.session_state['past'] = []
-    del st.session_state['advisor']
+    update_advisor()
 
 def update_advisor():
     st.session_state['generated'] = []
     st.session_state['past'] = []
-    if st.session_state["advisor_model"] == "Without critic":
+    if st.session_state["advisor_model"] == "Standard":
         st.session_state['advisor'] = Advisor(st.session_state["profile"],st.session_state["logging_queue"])
-    elif st.session_state["advisor_model"] == "With critic":
+    elif st.session_state["advisor_model"] == "With few shot training":
+        st.session_state['advisor'] = AdvisorFewShot(st.session_state["profile"], st.session_state["logging_queue"])
+    else:
         st.session_state['advisor'] = AdvisorCritic(st.session_state["profile"],st.session_state["logging_queue"])
 
 c_input = context.text_area("User profile", value=st.session_state["profile"], max_chars=2048,
                             on_change=update_profile, key="profile_area")
-model_selector = context.selectbox("Advisor model", ["With critic", "Without critic"], on_change=update_advisor, key="advisor_model")
+model_selector = context.selectbox("Advisor model", ["With critic", "Standard", "With few shot training"], on_change=update_advisor, key="advisor_model")
 
 
 with chat:
@@ -76,7 +78,7 @@ with chat:
 
 
 def advisor_conversation(query):
-    return st.session_state["advisor"].get_response(query)
+    return st.session_state["advisor"].get_response(query, st.session_state["profile"], st.session_state["session_id"])
 
 
 def query(payload):
