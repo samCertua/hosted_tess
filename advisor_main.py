@@ -2,22 +2,13 @@ import streamlit as st
 from streamlit_chat import message
 import requests
 import os
-from langchain import LLMChain
-from langchain.chains.conversation.memory import ConversationalBufferWindowMemory
-from langchain import OpenAI
-from langchain.prompts import PromptTemplate
 import uuid
-import datetime
-import sqlalchemy
-from urllib.parse import quote_plus
 from advisors import Advisor, AdvisorCritic
+from threading import Thread
+from multiprocessing import Queue
+from logging_util import logging_thread
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
-
-# st.set_page_config(
-#     page_title="Tess",
-#     page_icon=":robot:"
-# )
 
 st.header("Tess - advice")
 
@@ -36,8 +27,15 @@ if 'profile' not in st.session_state:
                                   "He spends £80 a month on petrol, £400 a year on car insurance and £60 a month on public transport. He also spends" \
                                   "£2000 a year on health insurance. Other expenses include gambling and the gym."
 
+if "logging_queue" not in st.session_state:
+    st.session_state["logging_queue"] = Queue()
+    logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
+    logging_worker.start()
+
 if 'advisor' not in st.session_state:
-    st.session_state["advisor"] = AdvisorCritic(st.session_state["profile"])
+    st.session_state["advisor"] = AdvisorCritic(st.session_state["profile"], st.session_state["logging_queue"])
+
+
 
 # "You are an AI expert financial advisor talking to " +profile+\
 #            "They are looking for financial advice " \
@@ -48,7 +46,7 @@ if 'advisor' not in st.session_state:
 #            "Human:{human_input}\n" \
 #            "AI:"
 
-context = st.expander(label="User profile")
+context = st.expander(label="Settings")
 chat = st.container()
 
 
@@ -58,23 +56,17 @@ def update_profile():
     st.session_state['past'] = []
     del st.session_state['advisor']
 
+def update_advisor():
+    st.session_state['generated'] = []
+    st.session_state['past'] = []
+    if st.session_state["advisor_model"] == "Without critic":
+        st.session_state['advisor'] = Advisor(st.session_state["profile"],st.session_state["logging_queue"])
+    elif st.session_state["advisor_model"] == "With critic":
+        st.session_state['advisor'] = AdvisorCritic(st.session_state["profile"],st.session_state["logging_queue"])
 
-c_input = context.text_area("Describe a user", value=st.session_state["profile"], max_chars=2048,
+c_input = context.text_area("User profile", value=st.session_state["profile"], max_chars=2048,
                             on_change=update_profile, key="profile_area")
-
-
-def log_interaction(id, session_id, service, timestamp, prompt, profile, message, response):
-    host = st.secrets["db_url"]
-    user = st.secrets["db_user"]
-    password = st.secrets["db_password"]
-    db_name = st.secrets["db_name"]
-    password_cleaned_host = "postgresql://" + user + ":%s@" + host + "/" + db_name
-    url = password_cleaned_host % quote_plus(password)
-    engine = sqlalchemy.create_engine(url)
-    conn = engine.connect()
-    query = f'INSERT INTO public.tess_logging (id, session_id, service, timestamp, prompt, profile, message, response) ' \
-            f'VALUES  (%s, %s, %s, TIMESTAMP %s, %s, %s, %s, %s)'
-    result = conn.execute(query, (id, session_id, service, timestamp, prompt, profile, message, response))
+model_selector = context.selectbox("Advisor model", ["With critic", "Without critic"], on_change=update_advisor, key="advisor_model")
 
 
 with chat:
@@ -104,11 +96,6 @@ with st.form("form", clear_on_submit=True) as f:
         output = advisor_conversation(user_input)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
-        log_interaction(id=uuid.uuid4(), session_id=st.session_state["session_id"], service="Advisor",
-                        timestamp=datetime.datetime.now(),
-                        prompt=st.session_state["advisor"].gen_context(" <profile> "),
-                        profile=st.session_state["advisor"].gen_context(st.session_state["profile"]),
-                        message=user_input, response=output)
 
 # if user_input:
 #     output = advisor_conversation(user_input)
