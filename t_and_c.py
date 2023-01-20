@@ -30,13 +30,13 @@ def doc_chunker(doc_text, chunk_size, overlap) -> List:
 
 # def summarise_doc(chunks, context):
 #     initial_chunk_context = "Summarize the following start of a  "+context+":\n"+chunks[0]
-#     summary = openai.Completion.create(model="text-davinci-003", prompt=initial_chunk_context, temperature=0)
+#     summary = openai.Completion.create(model="text-davinci-003", prompt=initial_chunk_context, temperature=0.2)
 #     summary.choices[0].text
 #     for c in chunks[1:]:
 #         subsequent_chunk_context = "A "+context+" that started with information summarised in the following way:" + summary + \
 #                                    "Write a summary for the summarised text and the following exert that comes after " \
 #                                    "the summarised text:\n"+c
-#         summary = openai.Completion.create(model="text-davinci-003", prompt=subsequent_chunk_context, temperature=0)
+#         summary = openai.Completion.create(model="text-davinci-003", prompt=subsequent_chunk_context, temperature=0.2)
 #     return summary
 
 def init_pinecone(embedding_size):
