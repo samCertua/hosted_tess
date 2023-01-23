@@ -132,6 +132,8 @@ def distributor_matches(index, query, distributors, number_of_results, chat):
     # print(distributors)
     for d in distributors:
         print(d)
+        with chat:
+            message(d)
         matches = index.query(
             vector=query,
             top_k=1,
