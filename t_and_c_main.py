@@ -28,7 +28,7 @@ if 'past' not in st.session_state:
 if 'chunks_dict' not in st.session_state:
     with open('scratch/chunk_dictionary.json', 'rb') as fp:
         st.session_state['chunks_dict'] = pickle.load(fp)
-    # print(st.session_state['chunks_dict'])
+    print(st.session_state['chunks_dict'])
 
 if 'index' not in st.session_state:
     pinecone.init(
@@ -50,6 +50,8 @@ def query(payload):
 def get_text():
     input_text = st.text_input("You: ", key="input")
     return input_text
+
+debug = st.text_area("debug",st.session_state['chunks_dict'] )
 
 chat = st.container()
 with chat:
