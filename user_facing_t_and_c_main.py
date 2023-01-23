@@ -106,7 +106,9 @@ with st.form("form", clear_on_submit=True) as f:
                     f'End date: {st.session_state["end_date"]}\n' \
                     f'Policy term: {st.session_state["policy_term"]}\n' \
                     f'Monthly premium: {st.session_state["monthly_premium"]}\n'
-        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict, st.session_state["selected_distributor"], user_info)
+        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict,
+                          st.session_state.past, st.session_state.generated,
+                          st.session_state.select_distributor, user_info)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
 
