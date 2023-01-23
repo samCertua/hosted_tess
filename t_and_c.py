@@ -147,7 +147,7 @@ def distributor_matches(index, query, distributors, number_of_results, chat):
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]
 
-def ask_tess(query, index, distributors, chunks_dict):
+def ask_tess(query, index, distributors, chunks_dict, chat):
     embedded_query = openai.Embedding.create(
         input=query,
         model="text-embedding-ada-002"
@@ -157,7 +157,7 @@ def ask_tess(query, index, distributors, chunks_dict):
     #     top_k=5,
     #     include_metadata=True
     # )["matches"]
-    matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
+    matches = distributor_matches(index, embedded_query, distributors, number_of_results=5, chat=chat)
     paragraphs = [chunks_dict[i["id"]] for i in matches]
     gpt_query = build_gpt_query(paragraphs, query)
     response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0.2, max_tokens=500)
