@@ -131,9 +131,6 @@ def distributor_matches(index, query, distributors, number_of_results, chat):
     # print(query)
     # print(distributors)
     for d in distributors:
-        print(d)
-        with chat:
-            message(d)
         matches = index.query(
             vector=query,
             top_k=1,
@@ -142,9 +139,6 @@ def distributor_matches(index, query, distributors, number_of_results, chat):
                 "distributor": {"$eq": d.lower()}
             },
         )["matches"]
-        print(matches)
-        with chat:
-            message(matches[0]["id"])
         results.append(matches[0])
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]

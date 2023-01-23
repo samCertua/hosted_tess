@@ -51,8 +51,6 @@ def get_text():
     input_text = st.text_input("You: ", key="input")
     return input_text
 
-debug = st.text_area("debug",st.session_state['chunks_dict'] )
-
 chat = st.container()
 with chat:
     message("Hi, I'm Tess. I will answer questions about policy documents for assurity, bequest, golden charter, and money for them.")
