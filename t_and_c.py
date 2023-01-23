@@ -90,11 +90,11 @@ def create_structures(chunks, embedded_chunks, chunk_metadata):
     return chunks_dict, embedding_tuples
 
 
-def build_gpt_query(paragraphs, query):
+def build_gpt_query(paragraphs, query, user_policy_info = ""):
     '''
     Add the paragraphs most relevant to the query and a query to a message to be sent to GPT
     '''
-    gpt_query = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure.\n"
+    gpt_query = user_policy_info + "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure.\n"
     for i in range(len(paragraphs)):
         gpt_query += f'Exert {paragraphs[i]}:\n'
     gpt_query += f'Query: {query}'
@@ -143,7 +143,7 @@ def distributor_matches(index, query, distributors, number_of_results):
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]
 
-def ask_tess(query, index, distributors, chunks_dict, distributor = None):
+def ask_tess(query, index, distributors, chunks_dict, distributor = None, user_policy_info = ""):
     embedded_query = openai.Embedding.create(
         input=query,
         model="text-embedding-ada-002"
@@ -157,7 +157,7 @@ def ask_tess(query, index, distributors, chunks_dict, distributor = None):
         matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
     else:
         matches = index.query(
-            vector=query,
+            vector=embedded_query,
             top_k=5,
             include_metadata=True,
             filter={
@@ -165,7 +165,7 @@ def ask_tess(query, index, distributors, chunks_dict, distributor = None):
             },
         )["matches"]
     paragraphs = [chunks_dict[i["id"]] for i in matches]
-    gpt_query = build_gpt_query(paragraphs, query)
+    gpt_query = build_gpt_query(paragraphs, query, user_policy_info)
     response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0.2, max_tokens=500)
     return response["choices"][0].text
 
