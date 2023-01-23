@@ -142,7 +142,7 @@ def distributor_matches(index, query, distributors, number_of_results, chat):
         )["matches"]
         print(matches)
         with chat:
-            message(matches)
+            message(matches[0]["id"])
         results.append(matches[0])
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]
