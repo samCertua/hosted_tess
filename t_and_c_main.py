@@ -28,7 +28,7 @@ if 'past' not in st.session_state:
 if 'chunks_dict' not in st.session_state:
     with open('scratch/chunk_dictionary.json', 'rb') as fp:
         st.session_state['chunks_dict'] = pickle.load(fp)
-    print(st.session_state['chunks_dict'])
+    # print(st.session_state['chunks_dict'])
 
 if 'index' not in st.session_state:
     pinecone.init(
@@ -62,7 +62,7 @@ with st.form("form", clear_on_submit=True) as f:
     user_input = get_text()
     submitted = st.form_submit_button("Send")
     if submitted:
-        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict)
+        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict, chat)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
 

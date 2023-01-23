@@ -6,6 +6,7 @@ import uuid
 import pickle
 from typing import List
 import streamlit as st
+from streamlit_chat import message
 from transformers import GPT2TokenizerFast
 
 openai.api_key = st.secrets["openai"]
@@ -124,7 +125,7 @@ def populate_pinecone():
     return chunks_dict, index
 
 
-def distributor_matches(index, query, distributors, number_of_results):
+def distributor_matches(index, query, distributors, number_of_results, chat):
     results = []
     # print(index)
     # print(query)
@@ -140,6 +141,8 @@ def distributor_matches(index, query, distributors, number_of_results):
             },
         )["matches"]
         print(matches)
+        with chat:
+            message(matches)
         results.append(matches[0])
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]
