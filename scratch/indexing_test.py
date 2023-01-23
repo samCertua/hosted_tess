@@ -163,7 +163,7 @@ def main():
         matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
         paragraphs = [chunks_dict[i["id"]] for i in matches]
         gpt_query = build_gpt_query(paragraphs, query)
-        response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0.2.2, max_tokens=500)
+        response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0.2, max_tokens=500)
         print(response["choices"][0].text)
         query = input()
     pass

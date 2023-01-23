@@ -115,7 +115,7 @@ def populate_pinecone():
         chunks = doc_chunker(text, 500, 150)
         chunks = add_context(chunks, context)
         all_chunks.extend(chunks)
-        chunk_metadata.extend([{"distributor": f} for c in chunks])
+        chunk_metadata.extend([{"distributor": f.lower()} for c in chunks])
     embedded_chunks = embed(all_chunks)
     chunks_dict, embedding_tuples = create_structures(all_chunks, embedded_chunks, chunk_metadata)
     index = init_pinecone(len(embedded_chunks[0]))
@@ -139,7 +139,7 @@ def distributor_matches(index, query, distributors, number_of_results, chat):
             top_k=1,
             include_metadata=True,
             filter={
-                "distributor": {"$eq": d}
+                "distributor": {"$eq": d.lower()}
             },
         )["matches"]
         print(matches)
