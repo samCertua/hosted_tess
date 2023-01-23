@@ -41,6 +41,9 @@ if 'distributors' not in st.session_state:
     st.session_state["distributors"] = os.listdir('./scratch/data')
     print(st.session_state["distributors"])
 
+if 'selected_distributor' not in st.session_state:
+    st.session_state["selected_distributor"] = 'Assurity'
+
 
 def query(payload):
     response = requests.post("http://localhost:8501/", json=payload)
@@ -51,16 +54,20 @@ def get_text():
     input_text = st.text_input("You: ", key="input")
     return input_text
 
+def update_selected_distributor():
+    st.session_state["selected_distributor"] = st.session_state["select_distributor"]
+
+model_selector = st.selectbox("Distributor", st.session_state["distributors"], on_change=update_selected_distributor, key="select_distributor")
 chat = st.container()
 with chat:
-    message("Hi, I'm Tess. I will answer questions about policy documents for assurity, bequest, golden charter, and money for them.")
+    message("Hi, I'm Tess. I will answer questions about your policy terms and conditions.")
 
 
 with st.form("form", clear_on_submit=True) as f:
     user_input = get_text()
     submitted = st.form_submit_button("Send")
     if submitted:
-        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict)
+        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict, st.session_state["selected_distributor"])
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
 

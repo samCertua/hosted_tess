@@ -125,7 +125,7 @@ def populate_pinecone():
     return chunks_dict, index
 
 
-def distributor_matches(index, query, distributors, number_of_results, chat):
+def distributor_matches(index, query, distributors, number_of_results):
     results = []
     # print(index)
     # print(query)
@@ -143,7 +143,7 @@ def distributor_matches(index, query, distributors, number_of_results, chat):
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]
 
-def ask_tess(query, index, distributors, chunks_dict, chat):
+def ask_tess(query, index, distributors, chunks_dict, distributor = None):
     embedded_query = openai.Embedding.create(
         input=query,
         model="text-embedding-ada-002"
@@ -153,10 +153,22 @@ def ask_tess(query, index, distributors, chunks_dict, chat):
     #     top_k=5,
     #     include_metadata=True
     # )["matches"]
-    matches = distributor_matches(index, embedded_query, distributors, number_of_results=5, chat=chat)
+    if distributor is None:
+        matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
+    else:
+        matches = index.query(
+            vector=query,
+            top_k=5,
+            include_metadata=True,
+            filter={
+                "distributor": {"$eq": distributor.lower()}
+            },
+        )["matches"]
     paragraphs = [chunks_dict[i["id"]] for i in matches]
     gpt_query = build_gpt_query(paragraphs, query)
     response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0.2, max_tokens=500)
     return response["choices"][0].text
+
+
 
 
