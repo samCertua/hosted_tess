@@ -8,9 +8,11 @@ from typing import List
 import streamlit as st
 from streamlit_chat import message
 from transformers import GPT2TokenizerFast
+import datetime
+from multiprocessing import Queue
 
 openai.api_key = st.secrets["openai"]
-
+PROMPT = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure.\n"
 
 def doc_chunker(doc_text, chunk_size, overlap) -> List:
     '''
@@ -94,7 +96,7 @@ def build_gpt_query(paragraphs, query, user_policy_info, user_messages, ai_messa
     '''
     Add the paragraphs most relevant to the query and a query to a message to be sent to GPT
     '''
-    gpt_query = user_policy_info + "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure.\n"
+    gpt_query = user_policy_info + PROMPT
     for i in range(len(paragraphs)):
         gpt_query += f'Exert {paragraphs[i]}:\n'
     if len(ai_messages)>1:
@@ -151,14 +153,16 @@ def distributor_matches(index, query, distributors, number_of_results):
     results = sorted(results, key=lambda d: d['score'], reverse=True)
     return results[:number_of_results]
 
-def ask_tess(query, index, distributors, chunks_dict, user_messages, ai_messages, distributor = None, user_policy_info = ""):
+def ask_tess(logging_queue, session_id,  query, index, distributors, chunks_dict, user_messages, ai_messages, distributor = None, user_policy_info = ""):
     embedded_query = openai.Embedding.create(
         input=query,
         model="text-embedding-ada-002"
     )['data'][0]['embedding']
     if distributor is None:
+        service = "T&C admin"
         matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
     else:
+        service = "T&C customer"
         matches = index.query(
             vector=embedded_query,
             top_k=5,
@@ -170,6 +174,10 @@ def ask_tess(query, index, distributors, chunks_dict, user_messages, ai_messages
     paragraphs = [chunks_dict[i["id"]] for i in matches]
     gpt_query = build_gpt_query(paragraphs, query, user_policy_info, user_messages, ai_messages)
     response = openai.Completion.create(model="text-davinci-003", prompt=gpt_query, temperature=0.2, max_tokens=500)
+    logging_queue.put((uuid.uuid4(), session_id, service,
+                            datetime.datetime.now(),
+                            PROMPT,
+                            query, response["choices"][0].text, gpt_query))
     return response["choices"][0].text
 
 

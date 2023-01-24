@@ -6,6 +6,10 @@ import requests
 from t_and_c import ask_tess, populate_pinecone
 import pinecone
 import pickle
+import uuid
+from threading import Thread
+from multiprocessing import Queue
+from logging_util import logging_thread
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
@@ -18,6 +22,9 @@ st.set_page_config(
 )
 
 st.header("Tess")
+
+if 'session_id' not in st.session_state:
+    st.session_state["session_id"] = uuid.uuid4()
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -46,18 +53,15 @@ if 'selected_distributor' not in st.session_state:
 
 if 'sum_assured' not in st.session_state:
     st.session_state["sum_assured"] = '£150,000'
-
-if 'start_date' not in st.session_state:
     st.session_state["start_date"] = '20/02/2023'
-
-if 'end_date' not in st.session_state:
     st.session_state["end_date"] = '19/02/2065'
-
-if 'policy_term' not in st.session_state:
     st.session_state["policy_term"] = '42 years'
-
-if 'monthly_premium' not in st.session_state:
     st.session_state["monthly_premium"] = '£100'
+
+if "logging_queue" not in st.session_state:
+    st.session_state["logging_queue"] = Queue()
+    logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
+    logging_worker.start()
 
 def query(payload):
     response = requests.post("http://localhost:8501/", json=payload)
@@ -106,7 +110,7 @@ with st.form("form", clear_on_submit=True) as f:
                     f'End date: {st.session_state["end_date"]}\n' \
                     f'Policy term: {st.session_state["policy_term"]}\n' \
                     f'Monthly premium: {st.session_state["monthly_premium"]}\n'
-        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict,
+        output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict,
                           st.session_state.past, st.session_state.generated,
                           st.session_state.select_distributor, user_info)
         st.session_state.past.append(user_input)

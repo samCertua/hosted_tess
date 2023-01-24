@@ -6,6 +6,10 @@ import requests
 from t_and_c import ask_tess, populate_pinecone
 import pinecone
 import pickle
+from threading import Thread
+from multiprocessing import Queue
+from logging_util import logging_thread
+import uuid
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
@@ -18,6 +22,9 @@ st.set_page_config(
 )
 
 st.header("Tess")
+
+if 'session_id' not in st.session_state:
+    st.session_state["session_id"] = uuid.uuid4()
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -41,6 +48,10 @@ if 'distributors' not in st.session_state:
     st.session_state["distributors"] = os.listdir('./scratch/data')
     print(st.session_state["distributors"])
 
+if "logging_queue" not in st.session_state:
+    st.session_state["logging_queue"] = Queue()
+    logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
+    logging_worker.start()
 
 def query(payload):
     response = requests.post("http://localhost:8501/", json=payload)
@@ -60,7 +71,8 @@ with st.form("form", clear_on_submit=True) as f:
     user_input = get_text()
     submitted = st.form_submit_button("Send")
     if submitted:
-        output = ask_tess(user_input, st.session_state.index, st.session_state.distributors, st.session_state.chunks_dict)
+        output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.distributors,
+                          st.session_state.chunks_dict, st.session_state.past, st.session_state.generated)
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
 

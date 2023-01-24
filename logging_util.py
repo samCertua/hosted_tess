@@ -4,7 +4,7 @@ from urllib.parse import quote_plus
 from multiprocessing import Queue
 
 
-def log_interaction(id, session_id, service, timestamp, prompt, profile, message, response):
+def log_interaction(id, session_id, service, timestamp, prompt, message, response, session_context):
     host = st.secrets["db_url"]
     user = st.secrets["db_user"]
     password = st.secrets["db_password"]
@@ -13,9 +13,9 @@ def log_interaction(id, session_id, service, timestamp, prompt, profile, message
     url = password_cleaned_host % quote_plus(password)
     engine = sqlalchemy.create_engine(url)
     conn = engine.connect()
-    query = f'INSERT INTO public.tess_logging (id, session_id, service, timestamp, prompt, profile, message, response) ' \
+    query = f'INSERT INTO public.tess_logging (id, session_id, service, timestamp, prompt, message, response, session_context) ' \
             f'VALUES  (%s, %s, %s, TIMESTAMP %s, %s, %s, %s, %s)'
-    result = conn.execute(query, (id, session_id, service, timestamp, prompt, profile, message, response))
+    result = conn.execute(query, (id, session_id, service, timestamp, prompt, message, response, session_context))
 
 
 def logging_thread(q: Queue):
@@ -23,5 +23,5 @@ def logging_thread(q: Queue):
         print("waiting for events")
         interaction = q.get()
         print("Got event")
-        id, session_id, service, timestamp, prompt, profile, message, response = interaction
-        log_interaction(id, session_id, service, timestamp, prompt, profile, message, response)
+        id, session_id, service, timestamp, prompt, message, response, session_context = interaction
+        log_interaction(id, session_id, service, timestamp, prompt, message, response, session_context)

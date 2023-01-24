@@ -8,9 +8,6 @@ from langchain import OpenAI
 from langchain.prompts import PromptTemplate
 import uuid
 import datetime
-import sqlalchemy
-from logging_util import log_interaction
-from urllib.parse import quote_plus
 from multiprocessing import Queue
 
 
@@ -42,8 +39,7 @@ class Advisor:
         self.logging_queue.put((uuid.uuid4(), session_id, "Advisor",
                                 datetime.datetime.now(),
                                 self.gen_context(" <profile> "),
-                                self.gen_context(profile),
-                                query, resp))
+                                query, resp, self.gen_context(profile)))
         return resp
 
 
@@ -82,8 +78,7 @@ class AdvisorFewShot:
         self.logging_queue.put((uuid.uuid4(), session_id, "Advisor few shot",
                                 datetime.datetime.now(),
                                 self.gen_context(" <profile> "),
-                                self.gen_context(profile),
-                                query, resp))
+                                query, resp, self.gen_context(profile)))
         return resp
 
 
@@ -129,8 +124,8 @@ class AdvisorCritic:
         self.logging_queue.put((uuid.uuid4(), session_id, "Advisor with critic",
                                 datetime.datetime.now(),
                                 self.gen_context(" <profile> ").replace("{input}", response_input),
-                                self.gen_context(profile),
-                                query, resp))
+
+                                query, resp, self.gen_context(profile)))
         return resp
 
     def gen_initial_context(self, profile):
