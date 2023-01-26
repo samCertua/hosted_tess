@@ -29,7 +29,7 @@ class Advisor:
     def gen_context(self, profile):
         return "You are an AI expert financial advisor talking to " + profile + \
                "Converse with them in a helpful manner, giving the best financial advice possible using the information " \
-               "provided. Do not write questions for them. Do not give specific values, and explain any reasoning:\n" \
+               "provided. Do not write questions for them and explain any reasoning:\n" \
                "{history}\n" \
                "Human:{human_input}\n" \
                "AI:"

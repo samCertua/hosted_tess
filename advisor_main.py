@@ -22,10 +22,11 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 if 'profile' not in st.session_state:
-    st.session_state["profile"] = "a 40 year old man living in the United Kingdom. He earns £60,000 a year and has a" \
+    st.session_state["profile"] = "a 40 year old man living in the United Kingdom. He earns £60,000 a year and has a " \
                                   "mortgage that costs £2000 a month. He spends £800 a month on groceries and £1100 a month on eating out/takeaway. " \
-                                  "He spends £80 a month on petrol, £400 a year on car insurance and £60 a month on public transport. He also spends" \
-                                  "£2000 a year on health insurance. Other expenses include gambling and the gym."
+                                  "He spends £80 a month on petrol, £400 a year on car insurance and £60 a month on public transport. He also spends " \
+                                  "£2000 a year on health insurance. Other expenses include gambling and the gym. His average monthly expenditure " \
+                                  "is £300 less than income. He has £10000 in savings."
 
 if "logging_queue" not in st.session_state:
     st.session_state["logging_queue"] = Queue()
