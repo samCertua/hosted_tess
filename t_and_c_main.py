@@ -50,8 +50,8 @@ if 'distributors' not in st.session_state:
 
 if "logging_queue" not in st.session_state:
     st.session_state["logging_queue"] = Queue()
-    logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
-    logging_worker.start()
+    # logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
+    # logging_worker.start()
 
 def query(payload):
     response = requests.post("http://localhost:8501/", json=payload)
@@ -71,8 +71,16 @@ with st.form("form", clear_on_submit=True) as f:
     user_input = get_text()
     submitted = st.form_submit_button("Send")
     if submitted:
+        with chat:
+            for i in range(len(st.session_state['generated'])):
+                message(st.session_state['past'][i], is_user=True, key=str(i) + '_user', avatar_style="initials",
+                        seed="Certua")
+                message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")
+            message(user_input, is_user=True, key='temp_user', avatar_style="initials", seed="Certua")
         output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.distributors,
                           st.session_state.chunks_dict, st.session_state.past, st.session_state.generated)
+        with chat:
+            message(output, key="temp_output", avatar_style="initials", seed="Tess")
         st.session_state.past.append(user_input)
         st.session_state.generated.append(output)
 
@@ -84,10 +92,12 @@ with st.form("form", clear_on_submit=True) as f:
 #     st.session_state.past.append(user_input)
 #     st.session_state.generated.append(output)
 
-if st.session_state['generated']:
-
-    for i in range(len(st.session_state['generated'])):
-        with chat:
-            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user', avatar_style="initials", seed="Certua")
-            message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")
+# if st.session_state['generated']:
+#     del st.session_state['temp_user']
+#     for i in range(len(st.session_state['generated'])):
+#         with chat:
+#             message(st.session_state['past'][i], is_user=True, key=str(i) + '_user', avatar_style="initials", seed="Certua")
+#             message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")
+    # with chat:
+    #     message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")
 
