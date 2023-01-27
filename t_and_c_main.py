@@ -21,7 +21,7 @@ st.set_page_config(
     page_title="Administrator Tess",
 )
 
-st.header("Tess")
+st.header("Administrator Tess")
 
 if 'session_id' not in st.session_state:
     st.session_state["session_id"] = uuid.uuid4()
