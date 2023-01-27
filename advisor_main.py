@@ -10,7 +10,7 @@ from logging_util import logging_thread
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 
-st.header("Tess - advice")
+st.header("Advisor Tess")
 
 if 'session_id' not in st.session_state:
     st.session_state["session_id"] = uuid.uuid4()
@@ -75,7 +75,7 @@ model_selector = context.selectbox("Advisor model", ["With critic", "Standard", 
 with chat:
     # message("Context (what the bot is being told): ")
     # message(gen_context())
-    message("Hi, I'm your new financial advisor. How can I help you")
+    message("Hi, I'm your new financial advisor. How can I help you", avatar_style="initials", seed="Certua")
 
 
 def advisor_conversation(query):
@@ -109,5 +109,5 @@ with st.form("form", clear_on_submit=True) as f:
 if st.session_state['generated']:
     for i in range(len(st.session_state['generated'])):
         with chat:
-            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-            message(st.session_state["generated"][i], key=str(i))
+            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user', avatar_style="initials", seed="Certua")
+            message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")

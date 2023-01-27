@@ -18,7 +18,7 @@ os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 #     st.session_state['initialised'] = True
 
 st.set_page_config(
-    page_title="Tess",
+    page_title="Administrator Tess",
 )
 
 st.header("Tess")
@@ -64,7 +64,7 @@ def get_text():
 
 chat = st.container()
 with chat:
-    message("Hi, I'm Tess. I will answer questions about policy documents for assurity, bequest, golden charter, and money for them.")
+    message("Hi, I'm Tess. I will answer questions about policy documents for assurity, bequest, golden charter, and money for them.", avatar_style="initials", seed="Certua")
 
 
 with st.form("form", clear_on_submit=True) as f:
@@ -88,6 +88,6 @@ if st.session_state['generated']:
 
     for i in range(len(st.session_state['generated'])):
         with chat:
-            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-            message(st.session_state["generated"][i], key=str(i))
+            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user', avatar_style="initials", seed="Tess")
+            message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Certua")
 
