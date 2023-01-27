@@ -97,7 +97,7 @@ monthly_premium_box = options.text_input("Monthly premium", value=st.session_sta
 
 chat = st.container()
 with chat:
-    message("Hi, I'm Tess. I will answer questions about your policy terms and conditions.")
+    message("Hi, I'm Tess. I will answer questions about your policy terms and conditions.", avatar_style="initials", seed="Tess")
 
 
 with st.form("form", clear_on_submit=True) as f:
@@ -128,6 +128,6 @@ if st.session_state['generated']:
 
     for i in range(len(st.session_state['generated'])):
         with chat:
-            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-            message(st.session_state["generated"][i], key=str(i))
+            message(st.session_state['past'][i], is_user=True, key=str(i) + '_user', avatar_style="initials", seed="Certua")
+            message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")
 

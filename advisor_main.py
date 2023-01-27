@@ -75,7 +75,7 @@ model_selector = context.selectbox("Advisor model", ["With critic", "Standard", 
 with chat:
     # message("Context (what the bot is being told): ")
     # message(gen_context())
-    message("Hi, I'm your new financial advisor. How can I help you", avatar_style="initials", seed="Certua")
+    message("Hi, I'm your new financial advisor. How can I help you", avatar_style="initials", seed="Tess")
 
 
 def advisor_conversation(query):
