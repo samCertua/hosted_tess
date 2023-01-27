@@ -161,7 +161,12 @@ def ask_tess(logging_queue, session_id,  query, index, distributors, chunks_dict
     )['data'][0]['embedding']
     if distributor is None:
         service = "T&C admin"
-        matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
+        # matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)
+        matches = index.query(
+            vector=embedded_query,
+            top_k=5,
+            include_metadata=True,
+        )["matches"]
     else:
         service = "T&C customer"
         matches = index.query(
