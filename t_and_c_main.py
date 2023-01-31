@@ -3,7 +3,8 @@ import os
 import streamlit as st
 from streamlit_chat import message
 import requests
-from t_and_c import ask_tess, populate_pinecone
+from t_and_c import ask_tess
+from document_uploader import build_dict
 import pinecone
 import pickle
 from threading import Thread
@@ -32,17 +33,19 @@ if 'generated' not in st.session_state:
 if 'past' not in st.session_state:
     st.session_state['past'] = []
 
-if 'chunks_dict' not in st.session_state:
-    with open('scratch/chunk_dictionary.json', 'rb') as fp:
-        st.session_state['chunks_dict'] = pickle.load(fp)
-    # print(st.session_state['chunks_dict'])
+if 'node_dictionary' not in st.session_state:
+    if not os.path.exists("./node_dictionary.json"):
+        build_dict()
+    with open('node_dictionary.json', 'rb') as fp:
+        st.session_state['node_dictionary'] = pickle.load(fp)
+    # print(st.session_state['node_dictionary'])
 
 if 'index' not in st.session_state:
     pinecone.init(
         api_key=st.secrets["pinecone"]
     )
-    print(pinecone.Index('openai').describe_index_stats())
-    st.session_state["index"] = pinecone.Index('openai')
+    print(pinecone.Index('tess').describe_index_stats())
+    st.session_state["index"] = pinecone.Index('tess')
 
 if 'distributors' not in st.session_state:
     st.session_state["distributors"] = os.listdir('./scratch/data')
@@ -78,7 +81,7 @@ with st.form("form", clear_on_submit=True) as f:
                 message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")
             message(user_input, is_user=True, key='temp_user', avatar_style="initials", seed="Certua")
         output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.distributors,
-                          st.session_state.chunks_dict, st.session_state.past, st.session_state.generated)
+                          st.session_state.node_dictionary, st.session_state.past, st.session_state.generated)
         with chat:
             message(output, key="temp_output", avatar_style="initials", seed="Tess")
         st.session_state.past.append(user_input)
