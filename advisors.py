@@ -238,7 +238,7 @@ class FinancialGoalsAdvisorCritic:
         critique = self.critic_chain.predict(input=f'Customer: {query}\nAdvisor: {initial_response}\n')
         response_input = f'Human:{query}\nCritique: {critique}\n'
         resp = self.chain.predict(input=response_input)
-        self.logging_queue.put((uuid.uuid4(), session_id, "Advisor with critic",
+        self.logging_queue.put((uuid.uuid4(), session_id, "Goals Advisor with critic",
                                 datetime.datetime.now(),
                                 self.gen_context(" <profile> ", " <suggested_goals> ").replace("{input}", response_input),
 
