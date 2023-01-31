@@ -122,11 +122,16 @@ def build_dict():
     with open("node_dictionary.json", "wb") as wr:
         pickle.dump(node_dict, wr)
     wr.close()
+    with open("node_dictionary_str.json", "w") as wr:
+        wr.write(json.dumps(node_dict))
+    wr.close()
 
 
 def main():
     # for f in os.listdir('./data'):
     #     add_document(f)
+    add_document("MHFAE.txt")
+    add_document("MRSL.txt")
     build_dict()
 
 

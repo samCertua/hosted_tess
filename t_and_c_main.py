@@ -56,6 +56,10 @@ if "logging_queue" not in st.session_state:
     # logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
     # logging_worker.start()
 
+if "prompt" not in st.session_state:
+    st.session_state["prompt"] = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure, if it is, support you answer with quotes directly from the exert.\n"
+
+
 def query(payload):
     response = requests.post("http://localhost:8501/", json=payload)
     return response.json()
@@ -80,8 +84,8 @@ with st.form("form", clear_on_submit=True) as f:
                         seed="Certua")
                 message(st.session_state["generated"][i], key=str(i), avatar_style="initials", seed="Tess")
             message(user_input, is_user=True, key='temp_user', avatar_style="initials", seed="Certua")
-        output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.distributors,
-                          st.session_state.node_dictionary, st.session_state.past, st.session_state.generated)
+        output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index,
+                          st.session_state.node_dictionary, st.session_state.past, st.session_state.generated, st.session_state["prompt"])
         with chat:
             message(output, key="temp_output", avatar_style="initials", seed="Tess")
         st.session_state.past.append(user_input)

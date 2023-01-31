@@ -1,0 +1,325 @@
+210_Policy_T&Cs_202007v1
+1
+General Terms And Conditions
+This Insurance contains some particularly important conditions which You must satisfy or You could lose some or all of Your cover. Because these are particularly important, We want to draw Your attention to them and We will highlight them in bold and capital letters within the Policy.
+A. General definitions
+A.1 Bodily Injury means any physical injury, sickness, disease or death of any person, including, any mental anguish or emotional distress resulting from such physical injury, sickness or disease.
+A.2 Breach Notice Law means any statute or regulation within the territorial limits stated in the Schedule that requires notice to persons whose Personally Identifiable Non-Public Information was accessed or reasonably may have been accessed by an unauthorised person.
+A.3 Buildings means the buildings at the Premises as specified in the Schedule (including the permanent foundations below ground level) which belong to You or for which You are legally responsible and from where you carry out Your Organisation’s business, including:
+a. Outbuildings, extensions and annexes:
+b. Landlord’s fixtures and fittings and fixed fuel tanks if attached to the building, external signs and aerials and satellite dishes;
+c. Walls, gates, fences, car parks, yards, private roads, pavements, paths at the Premises;
+d. Pipes, ducting, cables, wires and associated control equipment at the Premises and up to the public mains;
+e. Photovoltaic equipment including solar panels;
+f. Fixed glass in windows, doors and fanlights; and
+g. Tenant’s improvements.
+The land at the Premises is not included within this definition.
+A.4 Circumstance means any complaint, criticism, situation, problem or act, error or omission which may give rise to a Claim, or other Loss, costs or payments covered under this Policy.
+A.5 Claim means any written or oral demand made against You for compensation (monetary or otherwise). This includes:
+a. any legal proceedings, writ or summons or other application of any description whatsoever or cross-claim or counter claim issued against You;
+b. any other dispute resolution procedure commenced against You.
+A.6 Claims Expenses means any fees, costs and expenses incurred by Us, or by You with Our prior written consent (such consent not to be unreasonably withheld) in connection with any Claim or Circumstance.
+Claims Expenses does not include:
+a. computer security expert or forensic investigator expenses; or
+b. Your salaries, fees, overheads or other charges; or
+210_Policy_T&Cs_202007v1
+2
+c. any expenses or costs incurred by You in presenting, quantifying or pursuing a claim against Us for indemnity under the Policy unless expressly covered.
+A.7 Computers means computers including software and ancillary equipment which are always at Your Premises, which belong to Your Organisation or for which Your Organisation is legally responsible, but excluding the data or information entered by Your Organisation or on Your behalf.
+A.8 Computer Security means software, computer or network hardware devices, as well as Your Organisation’s written information security policies and procedures, the function or purpose of which is to prevent Unauthorised Access or Use, a Denial of Service Attack against Computer Systems, infection of Computer Systems by Malicious Code or transmission of Malicious Code from Computer Systems. Computer Security includes anti-virus and intrusion detection software, firewalls and electronic systems that provide access control to Computer Systems through the use of passwords, biometric (unique identification by biological traits such as fingerprints or DNA) or similar identification of authorised users.
+A.9 Computer Systems means computers and associated input and output devices, data storage devices, networking equipment, and back up facilities:
+a. operated by and either owned by or leased to Your Organisation; or
+b. systems operated by a third party service provider and used for the purpose of providing hosted computer application services to Your Organisation or for processing, maintaining, hosting or storing Your Organisation’s electronic data, pursuant to written contract with Your Organisation for such services.
+A.10 Contents at Premises means the contents of the Premises which belong to Your Organisation or for which You are legally responsible, including:
+a. Computers (as set out at “a) Computer and Ancillary on the Contents Schedule”);
+b. Other contents (as set out at “b) other contents on the Contents Schedule”) including but not limited to:
+i. Goods held in trust, stock and samples
+ii. Works of art including fine art of precious metals;
+Contents at Premises may also include any property specifically identified to Us and added by endorsement. Such endorsements will be listed in the Schedule. Tenant’s Improvements are included under the Buildings module if purchased. Tenant’s Improvements means any improvements or additions You have made to the Building by You as a tenant.
+A.11 Damages mean any awards of damages, judgment sums and sums payable towards settlement. The term Damages shall not include or mean:
+a. future profits, restitution, reimbursement, restoration, disgorgement of unjust enrichment or profits (the act of giving up something (such as profits illegally obtained) on demand or by legal compulsion) by You, or the costs of complying with orders granting injunctive or equitable relief;
+b. any, fines, taxes or loss of tax benefits, sanctions or penalties;
+c. punitive or exemplary damages or damages which are a multiple of compensatory damages;
+d. discounts, coupons, prizes, awards or other incentives offered to Your customers or clients;
+210_Policy_T&Cs_202007v1
+3
+e. costs associated with correcting errors in Your work product.
+f. service credits, which are liquidated damages as a remedy to the breach of a service level agreement to provide Professional Services to the extent that they create a liability greater than Your liability would be in the absence of the contract.
+A.12 Data Asset means any software or electronic data that exists in Computer Systems and that is subject to regular back up procedures, including computer programs, applications, account information, customer information, private or personal information, marketing information, financial information and any other information maintained by Your Organisation in its ordinary course of business.
+A.13 Denial of Service Attack means an attack intended by the perpetrator to overwhelm the capacity of a Computer System by sending an excessive volume of electronic data to such Computer System in order to prevent authorised access to such Computer System.
+A.14 Earth Movement means any natural or unnatural or man-made earth movement including but not limited to earthquake, seaquake, volcanic eruption and any ensuing tsunami.
+A.15 Employee means any person employed by Your Organisation including contractors that work exclusively for You and any person undertaking study or work experience or a youth training scheme. Employee does not include Your Management.
+A.16 Excess means the amount You are liable to pay in the event of a claim unless the policy wording states it is not applicable to certain types of claim.
+A.17 Flood means rising surface or tidal water, or the overflow of water from any natural or artificial watercourse (other than water tanks, apparatus) whether driven by storm or not.
+A.18 In Transit means where a specific contract has been entered into with a third party to transport the Contents at Premises and/or Portable Computers and Portable Contents (as applicable):
+a. By road, rail, water, air or person;
+b. Being loaded or unloaded in the course of transit by road, rail, water, air or by person; or
+c. Whilst temporarily house overnight away from the Premises in the course of transit.
+A.19 Loading and unloading means the handling of actual, physical or tangible property:
+a. after it is moved from the place where it is accepted for movement into or onto an aircraft, watercraft or Motor Vehicle;
+b. while it is in or on an aircraft, watercraft or Motor Vehicle; or
+c. while it is being moved from an aircraft, watercraft or Motor Vehicle to the place where it is finally delivered.
+A.20 Loss means, to the extent covered under any cover, Penalties (under Professional Liability Cover), PCI Fines and Costs (under Professional Liability Cover), Forensic Defence Costs (under Professional Liability Cover), expenses incurred in relation to loss of Documents (under Professional Liability Cover), Mitigation Costs (under Professional Liability Cover), financial loss due to dishonesty of Employees (under
+210_Policy_T&Cs_202007v1
+4
+Professional Liability Cover), Public Relations and Crisis Management Expenses (under Professional Liability Cover), Appeal Costs (under Professional Liability Cover), Privacy Breach Response Services (under Beazley Breach Response Cover), criminal defence costs and court attendance costs (under Employers Liability, Public and Products Liability and Directors & Officers Cover), crisis management costs (under Directors & Officers cover), Tax Investigation Expenses (under Directors & Officers Cover), regulatory investigation costs (under Directors & Officers Cover), losses for Property Damage and Financial Losses due to business interruption (under Property Cover).
+A.21 Malicious Code means any virus, Trojan horse, worm or any other similar software program, code or script intentionally designed to insert itself into computer memory or onto a computer disk and spread itself from one computer to another.
+A.22 Merchant Services Agreement means any agreement between You and a financial institution, credit/debit card company, credit/debit card processor or independent service operator enabling You to accept credit card, debit card, prepaid card, or other payment cards for payments or donations.
+A.23 Money means cash, bank and currency notes, crossed cheques, crossed giro cheques, crossed postal or money orders, crossed bankers’ drafts, unused units in postage stamp franking machines, stamped National Insurance cards, National Savings stamps or certificates, Premium Savings Bonds, credit company sales vouchers and VAT purchase invoices all belonging to Your Organisation.
+A.24 Motor Vehicle means a land motor vehicle, trailer or semi-trailer designed for travel on public roads (including any machinery or apparatus attached thereto).
+A.25 Named Entity means the individual(s), partnership(s), entity(ies) or corporation(s) named in the Schedule.
+A.26 Normal Settlement means the downward movement of the ground beneath buildings as a result of the soil being compressed by the weight of the buildings.
+A.27 Notified Individual means an individual person to whom notice is given or attempted to be given under Section B.1.b (Notified Individuals) of the Beazley Breach Response Services cover.
+A.28 PCI Fines and Costs means the direct monetary fines and penalties owed by Your Organisation under the terms of a Merchant Services Agreement, but only where such fines or penalties result both from Your Organisation’s actual or alleged noncompliance with published PCI Data Security Standards and from a data breach caused by an incident (or reasonably suspected incident) described in Extension B.2.a.i. (Data Breach) and B.2.a.ii (Computer Security Failure) of the Professional Liability cover; provided, PCI Fines and Costs shall not include, any charge backs, interchange fees, discount fees, or other service related fees, rates or charges.
+A.29 Penalties means:
+a. any civil fine or money penalty payable to a governmental entity that was imposed in a Regulatory Proceeding by any national, federal, provincial, state, local or other governmental entity of any country (including an institution, agency or other body of the European Union), in such entity’s regulatory or official capacity; and
+210_Policy_T&Cs_202007v1
+5
+b. amounts which You are legally obligated to deposit in a fund as equitable relief for the payment of consumer claims due to an adverse judgment or settlement of a Regulatory Proceeding (including such amounts required to be paid into a “consumer redress fund”); but shall not include payments to charitable organisations or disposition of such funds other than for payment of consumer claims for losses caused by a privacy or security event covered by Extension B.2.a.i (Data Breach), B.2.a.ii (Computer Security Failure) or B.2.a.iii (Failure to disclose) of the Professional Liability cover;
+but shall not mean (a) costs to remediate or improve Computer Systems, (b) costs to establish, implement, maintain, improve or remediate security or privacy practices, procedures, programmes or policies, (c) audit, assessment, compliance or reporting costs, or (d) costs to protect the confidentiality, integrity and/or security of Personally Identifiable Non-Public Information from theft, loss or disclosure, even if it is in response to a Regulatory Proceeding or investigation.
+A.30 Personal Effects mean articles worn, used or carried about the person excluding cash, bank and currency notes and jewellery.
+A.31 Personally Identifiable Non-Public Information means:
+a. medical or health care information concerning the individual;
+b. information concerning the individual that is defined as private personal information under statutes enacted to protect such information in any country, for Claims subject to the law of such jurisdiction;
+c. information concerning the individual that is defined as private personal information under a Breach Notice Law; or
+d. the individual’s:
+i. governmental identification number including a drivers licence or state or provincial identification number or a social security number;
+ii. unpublished telephone number; or
+iii. credit, debit or other financial account numbers in combination with associated security codes, access codes, passwords or pins;
+if such information allows an individual to be uniquely and reliably identified or contacted or allows access to the individual’s financial account or medical record information but does not include publicly available information that is lawfully made available to the general public from government records.
+A.32 Policy Period means the period of time between the inception date shown in the Schedule and the effective date of termination, expiration or cancellation of this Policy.
+A.33 Portable Computers and Portable Contents means portable equipment designed to be easily moved from one location to another, including laptops, cameras and mobile phones used in connection with Your Professional Services and which belong to Your Organisation or for which You are legally responsible.
+A.34 Premises means the space occupied by Your Organisation in connection with Your Professional Services as identified in the Schedule.
+A.35 Privacy Law means a statute or regulation of any national, federal, provincial, state, local or other governmental entity of any country (including an institution,
+210_Policy_T&Cs_202007v1
+6
+agency or other body of the European Union) requiring Your Organisation to protect the confidentiality and/or security of Personally Identifiable Non-Public Information.
+A.36 Privacy Policy means Your Organisation’s public declaration of its policy for collection, use, disclosure, sharing, dissemination and correction or supplementation of, and access to, Personally Identifiable Non-Public Information.
+A.37 Professional Services means those services stated in the Schedule.
+A.38 Property Damage means accidental physical loss (including theft & robbery) or accidental physical damage or destruction of physical property excluding electronic data
+A.39 Proposal Form means all proposal forms, including any attachments, and all other information and materials submitted to Us by You or on Your behalf in connection with the underwriting of this Policy, or prior policies of which this Policy is a renewal.
+A.40 Regulatory Proceeding means a request for information, civil investigative demand, or civil proceeding commenced by service of a complaint or similar proceeding brought by or on behalf of any national, federal, provincial, state, local or other governmental entity of any country (including an institution, agency or other body of the European Union), in such entity’s regulatory or official capacity in connection with such proceeding.
+A.41 Retroactive Date means the date shown in the Schedule.
+A.42 Security Breach means:
+a. Unauthorised Access or Use of Computer Systems, including Unauthorised Access or Use resulting from the theft of a password from a Computer System or from You;
+b. a Denial of Service Attack against Computer Systems or Third Party Computer Systems; or
+c. infection of Computer Systems by Malicious Code or transmission of Malicious Code from Computer Systems,
+whether any of the above is a specifically targeted attack or a generally distributed attack.
+A series of continuing Security Breaches, related or repeated Security Breaches, or multiple Security Breaches resulting from a continuing failure of Computer Security shall be considered a single Security Breach and be deemed to have occurred at the time of the first such Security Breach.
+A.43 Subsidiary means any corporation, limited liability company or partnership the Named Entity has Management Control over, but only if the Named Entity:
+a. had Management Control over such entity on the inception date or such entity was insured under a policy issued by Us of which this Policy is a renewal;
+b. acquires Management Control after the inception date, provided that revenues of the entity do not exceed twenty (20) per cent of the Named
+210_Policy_T&Cs_202007v1
+7
+Entity’s annual revenues for the four quarterly periods directly preceding inception of the Policy Period;
+provided, that this Policy only provides coverage while the Named Entity has Management Control over such entity.
+For the purposes of this definition, Management Control means:
+a. owning, directly or indirectly, more than fifty percent (50%) of the outstanding securities;
+b. having more than 50% of the outstanding voting rights;
+c. having the authority to appoint or remove the majority of the Board of Directors; or
+d. having control of the Board or Directors by contract, the Articles of Association or other agreement.
+A.44 Subsidence means the downward movement of water from the Premises where the movement is unconnected with the weight of the building, landslip or upward movement of the ground as a result of the soil expanding.
+A.45 Sum Insured means the most We will pay to You for all claims made under a section.
+A.46 Tenant’s Improvements means any improvements or additions made to the Building by You as a tenant.
+A.47 Third Party Computer Systems means any computer systems that: (1) are not owned, operated or controlled by You; and (2) does not include computer systems of a third party on which You perform services. Computer systems include associated input and output devices, data storage devices, networking equipment, and back up facilities.
+A.48 Third Party Corporate Information means any trade secret, data, design, interpretation, forecast, formula, method, practice, credit or debit card magnetic strip information, process, record, report or other item of information of a third party not insured under this Policy which is not available to the general public and is provided to You subject to a mutually executed written confidentiality agreement or which the Your Organisation is legally required to maintain in confidence; however, Third Party Corporate Information shall not include Personally Identifiable Non-Public Information.
+A.49 Third Party Premises means any location within the territorial limits set out in the Schedule not owned by You and for which You are not legally responsible, where You have a contract to carry out Your Professional Services.
+A.50 Unauthorised Access or Use means the gaining of access to or use of Computer Systems by an unauthorised person or persons or the use of Computer Systems in an unauthorised manner.
+A.51 Unauthorised Disclosure means the disclosure of or access to information in a manner that is not authorised by Your Organisation and is without knowledge of, consent of any member of the Your Management.
+A.52 Uncovered company means any entity where the applicable law or regulation does not allow Us to provide cover to that entity or which the Named Entity has
+210_Policy_T&Cs_202007v1
+8
+elected that this policy will not cover directly but, instead, the policy will cover the Named Entity’s own financial interest in such entity.
+A.53 Us/Our/We means the underwriter or underwriters as specified in the Schedule.
+A.54 You/Your/Insured means:
+a. The Named Entity;
+b. Subsidiaries;
+c. Your Management, but only with respect to the performance of their duties on behalf of Your Organisation;
+d. Employees but only with respect to the performance of their duties on behalf of Your Organisation;
+e. Your lawful spouse, including any natural person qualifying as a domestic partner under the provisions of any applicable law but only to the extent that You would otherwise be covered under this policy;
+f. Your estate, heirs, executors, administrators, assigns and legal representatives in the event of Your death, incapacity, insolvency or bankruptcy, but only to the extent that You would otherwise be covered under this Policy.
+A.55 Your Management means the individuals holding the following positions in Your Organisation: President; members of the Board of Directors; executive officers, including the Chief Executive Officer, Chief Operating Officer, and Chief Financial Officer; General Counsel, in house lawyers employed by the Your Organisation; Chief Information Officer; Chief Security Officer; Chief Privacy Officer; Manager; including any individual in a substantially similar position as those referenced above, or with substantially similar responsibilities as those referenced above, irrespective of the exact title of such individual, and any individual who previously held any of the above referenced positions.
+A.56 Your Organisation means the Named Entity and any Subsidiaries.
+B. What We do not cover
+B.1 Prior Knowledge
+We will not make any payment for any Claim, Loss or cost, arising out of, resulting from, in respect of or related to:
+a. any Claim first made against You or any Loss suffered by You prior to the inception date of this Policy.
+b. any Circumstances which Your Management was aware of or ought reasonably to have been aware of prior to the policy incepting or of which written notice has been given, or ought reasonably to have been given, under any previous policy (whether issued by Us or not).
+c. any common or originating source or cause of which You were aware prior to the inception of this Policy.
+210_Policy_T&Cs_202007v1
+9
+B.2 Other Insurance
+We will not make any payment under this Policy unless and until any other insurance including any self insured retention or deductible portion, has been exhausted. This exclusion will not apply if such other insurance is written as specific excess insurance to this insurance.
+B.3 Insured Vs. Insured & Related Entity
+We will not make any payment under this Policy for a Claim made by or on behalf of one or more Insureds under this Policy, or by a Related Entity, against any other Insured or Insureds under this Policy unless expressly provided for under one of the covers You have purchased.
+Related Entity means any entity in which Your Organisation has, either directly or indirectly, an ownership interest or voting rights of greater than 15% or which has such an ownership interest of voting rights in Your Organisation.
+B.4 Excluded Jurisdictions
+We will not make any payment for or in respect of any liability which is established by the judgment of a court or tribunal outside any of the jurisdictions specified under the Jurisdiction Limits Section in the Schedule or by a court applying to the adjudication of a Claim the law of a jurisdiction not specified under the Jurisdiction Limits Section in the Schedule; nor will we meet Claim Expenses relating to a Claim brought before such a court.
+Unless expressly provided for under one of the covers You have purchased, We will not make any payment for or in respect of any Claim or Loss or cost, for, arising out of, or resulting from:
+B.5 Abuse and Molestation
+a. Sexual abuse or injury, molestation, sexual assault, sexual exploitation, child abuse or child neglect;
+b. Wrongful hiring, supervision, investigation or failure to report to the proper authorities in connection with sub-paragraph a. above.
+B.6 Antitrust Laws
+any actual or alleged antitrust violation, restraint of trade, unfair competition, violation of consumer protection laws, violation of the Competition Act 1998 and/or the Enterprise Act 2002 unless specifically covered elsewhere.
+B.7 Bribery, Corruption And Organised Crime Laws
+any actual or alleged violation of any bribery, anti corruption or organised crime laws or regulations or any similar laws or regulations of any state, province or other jurisdiction similar to the foregoing, whether such law is statutory, civil, regulatory or common law, including but not limited to the Proceeds of Crime Act 2002.
+This exclusion shall not apply to the Directors & Officers cover (if purchased) in respect of any actual or alleged violation of the UK Bribery Act 2010.
+210_Policy_T&Cs_202007v1
+10
+B.8 Electrical, Utility, Telecommunications Infrastructure and Satellite
+any failure or malfunction of electrical, utility, internet or telecommunications infrastructure or services or any satellite, unless:
+a. such failure arises solely from matters within Your operational control; or
+b. expressly provided for under one of the covers You have purchased.
+B.9 Employment Relationships
+a. any employer-employee relations or policies, any actual or alleged employment practices liability acts or omissions, or refusal to employ any person, or misconduct with respect to employees, whether such Claim is brought by an Employee, former Employee, applicant for employment, a member of Your Management or relative of such person;
+b. any actual or alleged violation of any employment related law or regulation, including but not limited to the National Minimum Wage Act 1998, the Working Time Regulations 1998, Employment Rights Act 1996 or/and the Health and Safety at Work Act 1974;
+c. any actual or alleged employment-related discrimination of any kind including but not limited to age, colour, race, sex, creed, national origin, marital status, sexual preference, disability or pregnancy;
+B.10 Financial Instruments
+any pension, healthcare, welfare, profit sharing, mutual or investment plans, funds or trust, including but not limited to the Pensions Act 2004.
+B.11 Fines And Sanctions
+a. fines, prosecution costs or penalties of any kind;
+b. penal, punitive or exemplary or aggravated damages; or criminal sanctions;
+B.12 Insolvency/Bankruptcy
+Your insolvency or bankruptcy or the insolvency or bankruptcy of any of Your subcontractors or suppliers.
+B.13 Insured’s External Activities
+Your activities as a trustee, partner, officer, director or employee of any trust or benefits scheme, charitable organisation, corporation, company or business other than Your Organisation, unless expressly provided for under one of the covers You have purchased.
+B.14 Intentional Acts
+a. any criminal, dishonest, fraudulent, illegal or malicious conduct or any intentional or knowing violation of the law committed by Your Management;
+However, this exclusion will only apply if and when:
+210_Policy_T&Cs_202007v1
+11
+i. such conduct or intentional violation of the law has been admitted in writing by Your Management, or
+ii. such conduct or intentional violation has been established by a judgment or other decision in any judicial, administrative, or alternative dispute resolution proceeding;
+at which time You shall reimburse Us for all payments made by Us defending the Claim and We will not have any further liabilities in relation to this Claim.
+B.15 Nuclear And Radioactive Contamination
+a. ionising radiations or contamination by radioactivity from any nuclear fuel or from any nuclear waste from the combustion of nuclear fuel; or
+b. the radioactive, toxic, explosive or other hazardous properties of any explosive nuclear assembly or nuclear component thereof.
+B.16 Patent/Trade Secret
+a. any actual or alleged infringement of any patent or patent rights or misuse or abuse of any patent;
+b. any actual or alleged use or misappropriation of any ideas or trade secrets, unless expressly provided for under one of the covers You have purchased.
+B.17 Recall Of Products
+the withdrawal or recall of products.
+B.18 Royalty Payments
+a. the actual or alleged obligation to make licensing fee or royalty payments, including but not limited to the amount or timeliness of such payments;
+b. or brought by or on behalf of any intellectual property licensing bodies or organisations, including but not limited to the Society of European Stage Authors and Composers, the American Society of Composers, Authors and Publishers or Broadcast Music, Inc;
+B.19 Securities Laws
+any actual or alleged violation of any securities related law, act, regulation or legislation, including but not limited to the Companies Act 2006, the Financial Services and Markets Acts 2000, or any amendment to the above.
+B.20 Toxic Mould, Asbestos, Pollution, Electromagnetic Field
+a. the actual, potential, alleged or threatened formation, growth, presence, release or dispersal of any fungi, molds, spores or mycotoxins of any kind; any action taken by any party in response to the actual, potential, alleged or threatened formation, growth, presence, release or dispersal of any fungi, molds, spores or mycotoxins of any kind, such action to include investigating, testing for, detection of, monitoring of, treating, remediating or removing such fungi, molds, spores or mycotoxins; or any governmental or regulatory order, requirement, directive, mandate or decree that any party take action in response to the actual, potential, alleged or threatened formation, growth,
+210_Policy_T&Cs_202007v1
+12
+presence, release or dispersal of any fungi, molds, spores or mycotoxins of any kind, such action to include investigating, testing for, detection of, monitoring of, treating, remediating or removing such fungi, molds, spores or mycotoxins.
+We will have no duty or obligation to defend You with respect to any Claim or governmental or regulatory order, requirement, directive, mandate or decree which either in whole or in part, directly or indirectly arises out of, or results from or in consequence of, or in any way involves the actual, potential, alleged or threatened formation, growth, presence, release or dispersal of any fungi, molds, spores or mycotoxins of any kind;
+b. asbestos, or any materials containing asbestos in whatever form or quantity;
+c. any electromagnetic field, electromagnetic radiation or electromagnetism;
+d. whether suddenly or over a long period of time seepage, pollution or contamination of any kind, unless specifically covered elsewhere;
+e. the actual, alleged, or threatened discharge, dispersal, release or escape of Pollutants; or any governmental, judicial or regulatory directive or request that You or anyone acting under Your direction or control test for, monitor, clean up, remove, contain, treat, detoxify or neutralize Pollutants. Pollutants means any solid, liquid, gaseous or thermal irritant or contaminant including gas, acids, alkalis, chemicals, heat, smoke, vapour, soot, fumes or waste. Waste includes but is not limited to materials to be recycled, reconditioned or reclaimed.
+This exclusion does not apply to Employers Liability cover, (if purchased).
+B.21 War And Terrorism
+a. war, invasion, riots, acts of foreign enemies, hostilities or warlike operations (whether war be declared or not), civil war, rebellion, revolution, insurrection, civil commotion assuming the proportions of or amounting to an uprising, military or usurped power; or
+b. any act of terrorism. For the purpose of this exclusion, an act of terrorism means an act, including but not limited to the use of force or violence and/or the threat thereof, of any person or group(s) of persons, whether acting alone or on behalf of or in connection with any organisation(s) or government(s), committed for political, religious, ideological or similar purposes including the intention to influence any government and/or to put the public, or any section of the public, in fear,
+this Exclusion also excludes loss, damage, cost or expense of whatsoever nature directly or indirectly caused by, resulting from or in connection with any action taken in controlling, preventing, suppressing or in any way relating to any act of terrorism.
+210_Policy_T&Cs_202007v1
+13
+B.22 Aircraft, Motor, Marine And Aviation
+the ownership, maintenance, possession, use of or entrustment to others of any aircraft, Motor Vehicle or watercraft owned or operated by or rented or loaned to You. Use includes operation and Loading or Unloading.
+B.23 Cyber Loss
+directly or indirectly caused by, resulting from, or arising out, based upon or attributable to any actual, alleged or threatened unauthorized access to, unauthorized disclosure, theft, loss, alteration or destruction of, damage to, or inability or impaired ability to access or manipulate, or failure to safeguard any information, electronic data (including but not limited to software or electronic databases), computer, or computer or communication network, whether total, partial, temporary, or permanent.
+C. What You and Your management must do
+C.1 Cooperating with Us
+The following are IMPORTANT CONDITIONS under this Policy. Coverage under this Policy will not be available unless You comply with these important conditions:
+a. You must cooperate with Us in the investigation, defence and settlement of all Circumstances, Claims and Losses. You must not take any action which in any way increases Our exposure under this Policy.
+b. You must not admit liability, apologise, incur any expenses and enter into any settlement or dispose of any Circumstance, Claim or Losses without Our prior written consent.
+c. You must make available to Us at all reasonable times, and We have the right to inspect and copy, all Your books, papers and other records and those of Your agents or brokers in connection with any Claim, Circumstance or Loss notified under this Policy.
+D. Defence, settlement and investigation of claims
+D.1 We will conduct the defence of any Claim first made against You during the Policy Period (subject to the policy limits, General Conditions, and other terms and conditions of this Policy). We will appoint lawyers, experts and other representatives to defend You if We consider it necessary to do so.
+D.2 In addition, We will pay Your Claims Expenses incurred with Our prior written consent.
+D.3 If We recommend any strategy, settlement or compromise that is accepted by the third party claimant and You refuse to agree to it and decide to contest the Claim, Our liability will not exceed the amount for which that Claim could have been resolved if our recommendation had been followed or settled, less the applicable excess and the Claims Expenses incurred up to the time of Your refusal.
+D.4 Where We believe that a Claim may exceed the Limit of Liability, We reserve the right at any time to pay a sum equal to or in excess of the Limit of Liability to You.
+210_Policy_T&Cs_202007v1
+14
+In these circumstances, We shall have no further liability under the Policy in relation to the Claim whether for Damages, Claims Expenses or otherwise.
+E. General conditions
+E.1 Contract (Right Of Third Parties) Act 1999
+The terms and conditions of this Policy will only be enforceable by You and Us. No one besides You and Us shall have any rights under the Contract (Rights of Third Parties) Act 1999 to enforce any terms and conditions of this Policy.
+E.2 Fraudulent Claims
+If You make a fraudulent claim under this Policy, We:
+a. are not liable for any payment for any Claim, Damages, Claims Expenses, Loss or costs: and
+b. may recover from You any sums that We have paid to You in respect of the claim; and
+c. may by notice to You treat the Policy as having been terminated with the effect from the date of the fraudulent act.
+If We exercise our right under General Condition E.2.c above:
+a. We shall not be liable to You in respect of a relevant event occurring after the date of the fraudulent act. A relevant event is anything that gives rise to Our liability under this Policy (such as the occurrence of a loss, the making of a Claim, or the notification of a potential Claim): and
+b. We need not return any of the premium paid.
+E.3 Change in Circumstances
+Your Management must tell us as soon as reasonably possible of any material change or changes in circumstances during the Policy Period that increases the risk covered and/or any material change in the matters declared to Us. We will not provide any indemnity in respect of liability arising from such material change in the matters declared to Us unless We have agreed in writing to accept the altered risk.
+E.4 Communications with You
+Your Management shall be considered Your agent and shall act on Your behalf with respect to the giving of or receipt of all notices relating to this Policy including the acceptance of any endorsements to this Policy. Your Management shall be responsible for the payment of all premiums and the policy excess.
+E.5 Cancellation and Renewal
+a. Provided Your Management has not notified any Claims, Losses or Circumstances, You may cancel this Policy by giving Us 30 days written notice.
+b. We may cancel this Policy by giving Your Management 30 days written notice. However, if the premium due under this Policy has not been paid to Us within 30 days of the inception of the Policy Period or, where premium is due
+210_Policy_T&Cs_202007v1
+15
+to be paid in instalments, by the date on which the instalment is due, We may cancel this by giving You 10 days written notice.
+c. We will give Your Management a pro-rata refund of the Premium for the remaining portion of the Policy Period after the expiry of the notice period for cancellation.
+d. If automatic renewal is available for this contract, the contract will renew automatically as a new contract of insurance on existing terms for a period of one year unless:
+i. notice of cancellation is sent by recorded delivery and is received from one of the parties at least 30 days prior to the expiration date specified in the Schedule; or
+ii. there is a material change falling within General Condition E.4.
+E.6 Mergers And Acquisitions
+a. Newly Acquired Entities
+If during the Policy Period the Named Entity or any Subsidiary acquires any entity whose annual revenues are less than twenty per cent (20%) of the Named Entity’s total annual revenues for the four quarterly periods directly preceding the Inception Date then, subject to the Policy Period and all other terms and conditions of this Policy, coverage under this Policy shall be afforded for a period of thirty (30) days, but only for:
+i. any Claim that arises out of any act, error or omission, first occurred or committed or incident or event first occurring after the entity becomes so owned;
+ii. business activities previously disclosed to Us;
+subject always to the entity having had no prior Claims.
+b. Mergers Or Consolidations
+If during the Policy Period the Named Entity consolidates or merges with or is acquired by another entity, or sells substantially all of its assets to any other entity, then this Policy shall remain in full force and effect, but only with respect to acts or incidents or Security Breach that occur prior to the date of the consolidation, merger or acquisition. No coverage shall be provided by this Policy for any other Claim or Loss unless the Named Entity provides written notice to Us prior to such consolidation, merger or acquisition, the Named Entity has agreed to any additional premium and terms of coverage required by Us and We have issued an endorsement extending coverage under this Policy.
+E.7 Subrogation and Recovery of Loss
+In the event of any payment under this Policy, We shall be subrogated, which means substituted as if We were You, such that We may exercise all Your rights of recovery against any person or organisation, and You shall do whatever is reasonable to secure such rights. Any recoveries shall be applied first to recovery
+210_Policy_T&Cs_202007v1
+16
+expenses, second to Damages, Losses and Claims Expenses and any other payments or costs covered under this Policy paid by Us, and third to any uninsured loss, including the policy excess specified in the Schedule. We will pay You any additional amounts recovered.
+E.8 Policy documentation
+By acceptance of this policy You agree that this Policy (including the Schedule and Endorsements) forms the entire agreement between You and Us.
+E.9 Bankruptcy
+Your bankruptcy or insolvency will not relieve Us of Our obligations nor deprive Us of Our rights or defences under this Policy.
+E.10 Headings
+The descriptions in headings and subheadings of this Policy are solely for convenience and form no part of the terms, conditions, exclusions or covers.
+E.11 Choice Of Law And Jurisdiction
+This Policy, including any non-contractual disputes arising in respect of it, shall be governed by and construed in accordance with the laws of England and Wales. We and You have agreed that any legal proceedings between Us in connection with this Policy will only take place in the courts of England and Wales.
+E.12 Several Liability Clause
+The insurers named hereon bind themselves each for their own part and not for one another. Each insurer’s liability under this policy shall not exceed that percentage or amount shown against that insurer’s name.
+E.13 Complaints Procedure
+Unless otherwise specified in a specific cover, if You have any questions or concerns about Your policy or the handling of a claim you should, in the first instance, contact
+Beazley Complaints
+Beazley Group
+22 Bishopsgate
+London
+EC2N 4BQ
+All correspondence should be addressed to the Beazley Complaints Manager.
+Or by telephone - 0207667 0623
+Or by email – beazley.complaints@beazley.com
+In the event that You remain dissatisfied and wish to make a complaint, it may be possible in certain circumstances for You to refer the matter to the Complaints team at Lloyd’s.
+Their address is:
+Complaints
+210_Policy_T&Cs_202007v1
+17
+Lloyd’s
+One Lime Street
+London EC3M 7HA
+Tel No: 020 7327 5693
+Fax No: 020 7327 5225
+E-mail: complaints@lloyds.com
+www.lloyds.com/complaints
+Details of Lloyd’s complaints procedures are set out in a leaflet “Your Complaint - How We Can Help” available at www.lloyds.com/complaints and are also available from the above address.
+If you remain dissatisfied after Lloyd’s has considered your complaint, you may have the right to refer your complaint to the Financial Ombudsman Service.
+E.14 Compensation
+We are covered by the Financial Services Compensation Scheme.
+You may be entitled to compensation from the Scheme if We are unable to meet Our obligations to You under this contract. If You are entitled to compensation under the Scheme, the level and extent of the compensation would depend on the nature of this contract.
+Further information about the Scheme is available from the Financial Services Compensation Scheme, 10th Floor, Beaufort House, 15 St Botolph Street, London EC3A 7QU, Telephone: 0800 678 1100 or 020 7741 4100 or on their website: www.fscs.org.uk.
+E.15 Financial interest coverage
+We will not provide cover for any Claim or Loss of an Uncovered company. We will instead reimburse the Named Entity for its financial interest in such Uncovered company by way of an agreed valuation calculated as the amount of Loss or Damages which would have been payable to the Uncovered company under this policy had the Uncovered company been insured under this policy. For the purpose of this provision the Named Entity will be deemed to have suffered a loss to its financial interest simultaneously with the Uncovered company which suffered the Claim or Loss for which it would have been entitled to receive cover under this policy.
+E.16 Sanction Limitation
+No (re)insurer shall be deemed to provide cover and no (re)insurer shall be liable to pay any claim or provide any benefit hereunder to the extent that the provision of such cover, payment of such claim or provision of such benefit would expose that (re)insurer to any sanction, prohibition or restriction under United Nations resolutions or the trade or economic sanctions, laws or regulations of the European Union, United Kingdom or United States of America.
+Certua is an authorised Lloyd’s of London Coverholder. Capacity for this policy is provided by Beazley Furlonge Limited (Company Registration Number: 01893407
+210_Policy_T&Cs_202007v1
+18
+and VT number: 649 2754 03) which is a managing agent for Syndicates at Lloyd’s and is authorised by the Prudential Regulation Authority (firm reference number: 204896) and regulated by the Financial Conduct Authority. Beazley Furlonge Limited is registered in England and Wales with its registered office at 22 Bishopgate, London, EC2N 4BQ. Email info@beazley.com Tel: +(0)44 20 7667 0623 Fax: +44 (0)20 7674 7100.

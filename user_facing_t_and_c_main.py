@@ -47,7 +47,7 @@ if 'index' not in st.session_state:
     st.session_state["index"] = pinecone.Index('tess')
 
 if 'distributors' not in st.session_state:
-    st.session_state["distributors"] = os.listdir('./scratch/data')
+    st.session_state["distributors"] = [i[:-4] for i in os.listdir('./data')]
     print(st.session_state["distributors"])
 
 if 'selected_distributor' not in st.session_state:
@@ -59,6 +59,7 @@ if 'sum_assured' not in st.session_state:
     st.session_state["end_date"] = '19/02/2065'
     st.session_state["policy_term"] = '42 years'
     st.session_state["monthly_premium"] = '£100'
+    st.session_state["prompt"] = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure, if it is, support you answer with quotes directly from the exert.\n"
 
 if "logging_queue" not in st.session_state:
     st.session_state["logging_queue"] = Queue()
@@ -82,6 +83,8 @@ def update_policy_info():
     st.session_state["monthly_premium"] = st.session_state["monthly_premium_box"]
     st.session_state['generated'] = []
     st.session_state['past'] = []
+    st.session_state['prompt'] = st.session_state["prompt_box"]
+
 
 def update_selected_distributor():
     st.session_state["selected_distributor"] = st.session_state["select_distributor"]
@@ -96,6 +99,8 @@ start_date_box = options.text_input("Start date", value=st.session_state["start_
 end_date_box = options.text_input("End date", value=st.session_state["end_date"], key="end_date_box", on_change=update_policy_info)
 policy_term_box = options.text_input("Policy term", value=st.session_state["policy_term"], key="policy_term_box", on_change=update_policy_info)
 monthly_premium_box = options.text_input("Monthly premium", value=st.session_state["monthly_premium"], key="monthly_premium_box", on_change=update_policy_info)
+prompt_box = options.text_area("Prompt", value=st.session_state["prompt"], max_chars=2048,
+                            on_change=update_policy_info, key="prompt_box")
 
 chat = st.container()
 with chat:
@@ -118,9 +123,9 @@ with st.form("form", clear_on_submit=True) as f:
                     f'End date: {st.session_state["end_date"]}\n' \
                     f'Policy term: {st.session_state["policy_term"]}\n' \
                     f'Monthly premium: {st.session_state["monthly_premium"]}\n'
-        output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.distributors, st.session_state.node_dictionary,
-                          st.session_state.past, st.session_state.generated,
-                          st.session_state.select_distributor, user_info)
+        output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.node_dictionary,
+                          st.session_state.past, st.session_state.generated, st.session_state.prompt,
+                          st.session_state.selected_distributor, user_info)
         with chat:
             message(output, key="temp_output", avatar_style="initials", seed="Tess")
         st.session_state.past.append(user_input)
