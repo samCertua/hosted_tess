@@ -53,8 +53,6 @@ chat = st.container()
 
 def update_profile():
     st.session_state["profile"] = st.session_state["profile_area"]
-    st.session_state['generated'] = []
-    st.session_state['past'] = []
     update_advisor()
 
 def update_advisor():

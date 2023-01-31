@@ -4,7 +4,7 @@ import requests
 import os
 import openai
 import uuid
-from advisors import Advisor, AdvisorCritic, AdvisorFewShot, FinancialGoalsAdvisor
+from advisors import Advisor, AdvisorCritic, AdvisorFewShot, FinancialGoalsAdvisor, FinancialGoalsAdvisorCritic
 from threading import Thread
 from multiprocessing import Queue
 from logging_util import logging_thread
@@ -44,24 +44,19 @@ chat = st.container()
 
 def update_profile():
     st.session_state["profile"] = st.session_state["profile_area"]
-    st.session_state["advisor"] = FinancialGoalsAdvisor(st.session_state["profile"], st.session_state["logging_queue"])
-    st.session_state['generated'] = []
-    st.session_state['past'] = []
     update_advisor()
 
 def update_advisor():
     st.session_state['generated'] = []
     st.session_state['past'] = []
     if st.session_state["advisor_model"] == "Standard":
-        st.session_state['advisor'] = Advisor(st.session_state["profile"],st.session_state["logging_queue"])
-    elif st.session_state["advisor_model"] == "With few shot training":
-        st.session_state['advisor'] = AdvisorFewShot(st.session_state["profile"], st.session_state["logging_queue"])
+        st.session_state['advisor'] = FinancialGoalsAdvisor(st.session_state["profile"],st.session_state["logging_queue"])
     else:
-        st.session_state['advisor'] = AdvisorCritic(st.session_state["profile"],st.session_state["logging_queue"])
+        st.session_state['advisor'] = FinancialGoalsAdvisorCritic(st.session_state["profile"],st.session_state["logging_queue"])
 
 c_input = context.text_area("User profile", value=st.session_state["profile"], max_chars=2048,
                             on_change=update_profile, key="profile_area")
-# model_selector = context.selectbox("Advisor model", ["With critic", "Standard", "With few shot training"], on_change=update_advisor, key="advisor_model")
+model_selector = context.selectbox("Advisor model", ["With critic", "Standard"], on_change=update_advisor, key="advisor_model")
 
 
 
