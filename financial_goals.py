@@ -36,7 +36,7 @@ if "logging_queue" not in st.session_state:
     logging_worker.start()
 
 if 'advisor' not in st.session_state:
-    st.session_state["advisor"] = FinancialGoalsAdvisorCritic(st.session_state["profile"], st.session_state["logging_queue"])
+    st.session_state["advisor"] = FinancialGoalsAdvisor(st.session_state["profile"], st.session_state["logging_queue"])
 
 context = st.expander(label="Settings")
 chat = st.container()
