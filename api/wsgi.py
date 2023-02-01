@@ -51,8 +51,8 @@ def create_app():
 
 
 
-    @app.route("/faq_message", methods=["POST"])
-    def faq_message():
+    @app.route("/user_faq_message", methods=["POST"])
+    def user_faq_message():
         if 'session_id' not in session:
             session["session_id"] = uuid.uuid4()
         if 'generated' not in session:
@@ -65,6 +65,23 @@ def create_app():
                           index,  node_dictionary,
                           session["past"], session["generated"], PROMPT,
                           distributor)
+        session["past"].append(user_message)
+        session["generated"].append(output)
+        session.modified = True
+        return output
+
+    @app.route("/admin_faq_message", methods=["POST"])
+    def admin_faq_message():
+        if 'session_id' not in session:
+            session["session_id"] = uuid.uuid4()
+        if 'generated' not in session:
+            session['generated'] = []
+        if 'past' not in session:
+            session['past'] = []
+        user_message = request.json["message"]
+        output = ask_tess(logging_queue, session["session_id"], user_message,
+                          index, node_dictionary,
+                          session["past"], session["generated"], PROMPT)
         session["past"].append(user_message)
         session["generated"].append(output)
         session.modified = True
