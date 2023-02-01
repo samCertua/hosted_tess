@@ -3,13 +3,13 @@ import streamlit as st
 from streamlit_chat import message
 import requests
 from agents.t_and_c import ask_tess
-from document_uploader import build_dict
+from utils.document_uploader import build_dict
 import pinecone
 import pickle
 import uuid
 from threading import Thread
 from multiprocessing import Queue
-from logging_util import logging_thread
+from utils.logging_util import logging_thread
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 

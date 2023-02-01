@@ -6,7 +6,7 @@ import uuid
 from advisors import Advisor, AdvisorCritic, AdvisorFewShot
 from threading import Thread
 from multiprocessing import Queue
-from logging_util import logging_thread
+from utils.logging_util import logging_thread
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 

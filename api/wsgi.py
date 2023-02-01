@@ -2,14 +2,13 @@ from flask import Flask, request, session
 import os
 from agents.t_and_c import ask_tess
 from agents.advice import get_advice, get_suggested_goals
-from advisors import FinancialGoalsAdvisor
-from document_uploader import build_dict
+from utils.document_uploader import build_dict
 import pinecone
 import pickle
 import uuid
 from threading import Thread
 from multiprocessing import Queue
-from logging_util import logging_thread
+from utils.logging_util import logging_thread
 import openai
 
 openai.api_key = os.environ['OPENAI_API_KEY']

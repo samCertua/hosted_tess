@@ -119,10 +119,10 @@ def build_dict():
     node_dict = {}
     for d in dicts:
         node_dict[str(d["id"])] = d["node_text"]
-    with open("node_dictionary.json", "wb") as wr:
+    with open("../node_dictionary.json", "wb") as wr:
         pickle.dump(node_dict, wr)
     wr.close()
-    with open("node_dictionary_str.json", "w") as wr:
+    with open("../node_dictionary_str.json", "w") as wr:
         wr.write(json.dumps(node_dict))
     wr.close()
 

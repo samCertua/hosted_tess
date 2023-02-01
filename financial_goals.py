@@ -4,10 +4,10 @@ import requests
 import os
 import openai
 import uuid
-from advisors import Advisor, AdvisorCritic, AdvisorFewShot, FinancialGoalsAdvisor, FinancialGoalsAdvisorCritic
+from advisors import FinancialGoalsAdvisor, FinancialGoalsAdvisorCritic
 from threading import Thread
 from multiprocessing import Queue
-from logging_util import logging_thread
+from utils.logging_util import logging_thread
 
 os.environ['OPENAI_API_KEY'] = st.secrets["openai"]
 openai.api_key = st.secrets["openai"]
