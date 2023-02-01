@@ -25,13 +25,13 @@ def build_gpt_query(paragraphs, query, user_policy_info, user_messages, ai_messa
         gpt_query += f'Exert {paragraphs[i]}:\n'
     if len(ai_messages)>1:
         gpt_query += f'Query: {user_messages[-2]}\n'
-        gpt_query += f'{ai_messages[-2]}\n'
+        gpt_query += f'Response: {ai_messages[-2]}\n'
         gpt_query+=f'Query: {user_messages[-1]}\n'
-        gpt_query+=f'{ai_messages[-1]}\n'
+        gpt_query+=f'Response: {ai_messages[-1]}\n'
     if len(ai_messages)==1:
         gpt_query+=f'Query: {user_messages[-1]}\n'
-        gpt_query+=f'{ai_messages[-1]}\n'
-    gpt_query += f'Query: {query}'
+        gpt_query+=f'Response: {ai_messages[-1]}\n'
+    gpt_query += f'Query: {query}\nResponse:'
     return gpt_query
 
 
