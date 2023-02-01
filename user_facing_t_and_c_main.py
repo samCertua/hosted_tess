@@ -1,9 +1,8 @@
-import pyarrow.lib
 import os
 import streamlit as st
 from streamlit_chat import message
 import requests
-from t_and_c import ask_tess
+from agents.t_and_c import ask_tess
 from document_uploader import build_dict
 import pinecone
 import pickle

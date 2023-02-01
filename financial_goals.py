@@ -56,7 +56,7 @@ def update_advisor():
 
 c_input = context.text_area("User profile", value=st.session_state["profile"], max_chars=2048,
                             on_change=update_profile, key="profile_area")
-model_selector = context.selectbox("Advisor model", ["With critic", "Standard"], on_change=update_advisor, key="advisor_model")
+# model_selector = context.selectbox("Advisor model", ["With critic", "Standard"], on_change=update_advisor, key="advisor_model")
 
 
 
@@ -71,7 +71,7 @@ with chat:
 
 
 def advisor_conversation(query):
-    return st.session_state["advisor"].get_response(query, st.session_state["profile"], st.session_state["session_id"])
+    return st.session_state["advisor"].get_response(query, st.session_state["profile"], st.session_state["session_id"], st.session_state["past"], st.session_state["generated"])
 
 
 def query(payload):

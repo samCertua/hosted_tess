@@ -1,10 +1,8 @@
-from flask import Flask, request, jsonify, session
-from os import listdir
-from os.path import join, dirname
-import pyarrow.lib
+from flask import Flask, request, session
 import os
-import requests
-from t_and_c import ask_tess
+from agents.t_and_c import ask_tess
+from agents.advice import get_advice, get_suggested_goals
+from advisors import FinancialGoalsAdvisor
 from document_uploader import build_dict
 import pinecone
 import pickle
@@ -53,8 +51,14 @@ def create_app():
 
 
 
-    @app.route("/message", methods=["POST"])
-    def message():
+    @app.route("/faq_message", methods=["POST"])
+    def faq_message():
+        if 'session_id' not in session:
+            session["session_id"] = uuid.uuid4()
+        if 'generated' not in session:
+            session['generated'] = []
+        if 'past' not in session:
+            session['past'] = []
         distributor = request.json["distributor"]
         user_message = request.json["message"]
         output = ask_tess(logging_queue, session["session_id"], user_message,
@@ -65,6 +69,30 @@ def create_app():
         session["generated"].append(output)
         session.modified = True
         return output
+
+    @app.route("/advisor_message", methods=["POST"])
+    def advisor_message():
+        profile = request.json["profile"]
+        if "suggested_goals" not in session:
+            if 'session_id' not in session:
+                session["session_id"] = uuid.uuid4()
+            if 'generated' not in session:
+                session['generated'] = []
+            if 'past' not in session:
+                session['past'] = []
+            session["suggested_goals"] = get_suggested_goals(profile)
+            session.modified = True
+            return session["suggested_goals"]
+        else:
+            user_message = request.json["message"]
+            output = get_advice(user_message, profile, session["session_id"], session["past"], session["generated"],
+                                session["suggested_goals"], logging_queue)
+            session["past"].append(user_message)
+            session["generated"].append(output)
+            session.modified = True
+            return output
+
+
 
     return app
 
