@@ -78,11 +78,12 @@ def create_structures(chunks, embedded_chunks, chunk_metadata):
         embedding_tuples.append((i, e, m))
     return chunk_dicts, embedding_tuples
 
-def add_document(document: str):
+def add_document(document: str, context = None):
     with open("./data/"+document, 'r', encoding='utf-8') as fp:
         text = fp.read()
     distributor = document.replace(".txt","")
-    context = f'The following is an exert from a document outlining terms and conditions for a life insurance product from the distributor {distributor}:\n'
+    if context is None:
+        context = f'The following is an exert from a document outlining terms and conditions for a life insurance product from the distributor {distributor}:\n'
     chunks = doc_chunker(text, 500, 150)
     chunks = add_context(chunks, context)
     chunk_metadata = [{"distributor": distributor.lower()} for c in chunks]
@@ -102,7 +103,8 @@ def add_document(document: str):
         query = f'INSERT INTO public.node_dictionary (id, distributor, node_text, embedding) ' \
                 f'VALUES  (%s, %s, %s, %s)'
         result = conn.execute(query, (c["id"], c["distributor"], c["node_text"], c["embedding"]))
-    pass
+
+    return index
 
 def build_dict():
     host = st.secrets["db_url"]
@@ -119,20 +121,42 @@ def build_dict():
     node_dict = {}
     for d in dicts:
         node_dict[str(d["id"])] = d["node_text"]
-    with open("../node_dictionary.json", "wb") as wr:
+    with open("./node_dictionary.json", "wb") as wr:
         pickle.dump(node_dict, wr)
     wr.close()
-    with open("../node_dictionary_str.json", "w") as wr:
+    with open("./node_dictionary_str.json", "w") as wr:
         wr.write(json.dumps(node_dict))
     wr.close()
 
+def reinit_pinecone():
+    host = st.secrets["db_url"]
+    user = st.secrets["db_user"]
+    password = st.secrets["db_password"]
+    db_name = st.secrets["db_name"]
+    password_cleaned_host = "postgresql://" + user + ":%s@" + host + "/" + db_name
+    url = password_cleaned_host % quote_plus(password)
+    engine = sqlalchemy.create_engine(url)
+    conn = engine.connect()
+    query = f'select * from public.node_dictionary'
+    result = conn.execute(query).all()
+    dicts = [r._asdict() for r in result]
+    embedding_tuples = []
+    for d in dicts:
+        embedding_tuples.append((str(d["id"]), json.loads(d["embedding"]), {"distributor": d["distributor"]}))
+    pinecone.init(
+        api_key=st.secrets["pinecone"]
+    )
+    index = pinecone.Index('tess')
+    index.delete(deleteAll=True)
+    index.upsert(embedding_tuples)
 
 def main():
     # for f in os.listdir('./data'):
     #     add_document(f)
-    add_document("MHFAE.txt")
-    add_document("MRSL.txt")
-    build_dict()
+    # add_document("MHFAE.txt")
+    # add_document("MRSL.txt", context=f'The following is an exert from a document outlining key facts for a life insurance product from the distributor MRSL:\n')
+    # build_dict()
+    reinit_pinecone()
 
 
 if __name__ == '__main__':
