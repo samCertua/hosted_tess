@@ -65,8 +65,8 @@ if 'sum_assured' not in st.session_state:
 
 if "logging_queue" not in st.session_state:
     st.session_state["logging_queue"] = Queue()
-    # logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
-    # logging_worker.start()
+    logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
+    logging_worker.start()
 
 def query(payload):
     response = requests.post("http://localhost:8501/", json=payload)
