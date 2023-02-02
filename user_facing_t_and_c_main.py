@@ -50,7 +50,7 @@ if 'distributors' not in st.session_state:
     print(st.session_state["distributors"])
 
 if 'selected_distributor' not in st.session_state:
-    st.session_state["selected_distributor"] = 'Assurity'
+    st.session_state["selected_distributor"] = 'MHFAE'
 
 if 'sum_assured' not in st.session_state:
     st.session_state["sum_assured"] = '£150,000'
@@ -62,8 +62,8 @@ if 'sum_assured' not in st.session_state:
 
 if "logging_queue" not in st.session_state:
     st.session_state["logging_queue"] = Queue()
-    logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
-    logging_worker.start()
+    # logging_worker = Thread(target=logging_thread, args = (st.session_state["logging_queue"],))
+    # logging_worker.start()
 
 def query(payload):
     response = requests.post("http://localhost:8501/", json=payload)
@@ -122,6 +122,7 @@ with st.form("form", clear_on_submit=True) as f:
                     f'End date: {st.session_state["end_date"]}\n' \
                     f'Policy term: {st.session_state["policy_term"]}\n' \
                     f'Monthly premium: {st.session_state["monthly_premium"]}\n'
+        user_info = ''
         output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.node_dictionary,
                           st.session_state.past, st.session_state.generated, st.session_state.prompt,
                           st.session_state.selected_distributor, user_info)
