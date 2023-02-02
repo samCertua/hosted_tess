@@ -13,7 +13,7 @@ from multiprocessing import Queue
 
 openai.api_key = st.secrets["openai"]
 # PROMPT = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure.\n"
-PROMPT = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure, if it is, support you answer with quotes directly from the exert.\n"
+PROMPT = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, say that you are unable to answer, if it is, support your answer with quotes directly from the exert.\n"
 
 
 def build_gpt_query(paragraphs, query, user_policy_info, user_messages, ai_messages, prompt):

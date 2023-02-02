@@ -58,7 +58,10 @@ if 'sum_assured' not in st.session_state:
     st.session_state["end_date"] = '19/02/2065'
     st.session_state["policy_term"] = '42 years'
     st.session_state["monthly_premium"] = '£100'
-    st.session_state["prompt"] = "Using only the information found in exerts and their given context, answer the query. If the information is not in the exert, answer that you are unsure, if it is, support you answer with quotes directly from the exert.\n"
+    st.session_state["prompt"] = "You are answering questions on behalf of the life insurance distributor {" \
+                                 "distributor}. Using only the information found in exerts and their given context, " \
+                                 "answer the query. If the information is not in the exert, say that you are unable " \
+                                 "to answer, if it is, support your answer with quotes directly from the exert.\n "
 
 if "logging_queue" not in st.session_state:
     st.session_state["logging_queue"] = Queue()
@@ -124,7 +127,7 @@ with st.form("form", clear_on_submit=True) as f:
                     f'Monthly premium: {st.session_state["monthly_premium"]}\n'
         user_info = ''
         output = ask_tess(st.session_state["logging_queue"], st.session_state["session_id"], user_input, st.session_state.index, st.session_state.node_dictionary,
-                          st.session_state.past, st.session_state.generated, st.session_state.prompt,
+                          st.session_state.past, st.session_state.generated, st.session_state.prompt.replace("{distributor}",st.session_state["selected_distributor"]),
                           st.session_state.selected_distributor, user_info)
         with chat:
             message(output, key="temp_output", avatar_style="initials", seed="Tess")
