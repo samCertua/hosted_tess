@@ -58,7 +58,7 @@ if 'sum_assured' not in st.session_state:
     st.session_state["end_date"] = '19/02/2065'
     st.session_state["policy_term"] = '42 years'
     st.session_state["monthly_premium"] = '£100'
-    st.session_state["prompt"] = "You are answering questions on behalf of the life insurance distributor {" \
+    st.session_state["prompt"] = "You are answering questions on behalf of the insurance distributor {" \
                                  "distributor}. Using only the information found in exerts and their given context, " \
                                  "answer the query. If the information is not in the exert, say that you are unable " \
                                  "to answer, if it is, support your answer with quotes directly from the exert.\n "
