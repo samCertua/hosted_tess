@@ -15,3 +15,11 @@ To change your direct debit:
 2. On login, you are taken to "My Cover" page. Click View policy on the policy you wish to update.
 3. In Payment details box, click edit
 4. Change direct debit details as instructed. Here you will need to enter your new account holder name, sort code and account number. If you are changing your bank details within five or less working days of your next payment collection day then we will use your old bank details for your upcoming payment. Please ensure that funds are available for this.
+
+To reset your password if you have forgotten it:
+1. Navigate to the login page on the Insurance Portal
+2. Click Link forgot password
+3. Enter email and submit
+4. Shortly, you shall receive an email with a link, click this (links expire within 48 hours)
+5. Change your password and submit
+6. Your password has now successfully been changed

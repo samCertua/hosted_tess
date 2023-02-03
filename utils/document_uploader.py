@@ -168,13 +168,14 @@ def main():
     # build_dict()
     # reinit_pinecone()
     # add_documents()
-    distributors = ["MRSL", "All"]
+    distributors = ["All"]
     for d in distributors:
         docs = os.listdir(f'./data/{d}')
         for doc in docs:
             add_document(d, doc)
     reinit_pinecone()
     build_dict()
+
 
 
 if __name__ == '__main__':
