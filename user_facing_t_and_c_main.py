@@ -46,7 +46,7 @@ if 'index' not in st.session_state:
     st.session_state["index"] = pinecone.Index('tess')
 
 if 'distributors' not in st.session_state:
-    st.session_state["distributors"] = [i[:-4] for i in os.listdir('./data')]
+    st.session_state["distributors"] = [i for i in os.listdir('./data')]
     print(st.session_state["distributors"])
 
 if 'selected_distributor' not in st.session_state:
@@ -95,7 +95,7 @@ def update_selected_distributor():
 
 options = st.expander("Options")
 
-model_selector = options.selectbox("Distributor", st.session_state["distributors"], on_change=update_selected_distributor, key="select_distributor")
+model_selector = options.selectbox("Distributor", st.session_state["distributors"], on_change=update_selected_distributor, key="select_distributor", index=6)
 sum_assured_box = options.text_input("Sum assured", value=st.session_state["sum_assured"], key="sum_assured_box", on_change=update_policy_info)
 start_date_box = options.text_input("Start date", value=st.session_state["start_date"], key="start_date_box", on_change=update_policy_info)
 end_date_box = options.text_input("End date", value=st.session_state["end_date"], key="end_date_box", on_change=update_policy_info)

@@ -1,0 +1,279 @@
+
+
+Certua Protect Ltd
+1st Floor Healthaid House,
+Marlborough Hill,
+Harrow, UK,
+HA1 1UD
+www.certua.io
+
+THIS IS TO CERTIFY that in accordance with the authorisation granted under Contract No B1820WLS22C475 to the undersigned by certain Underwriters at Lloyd's hereinafter known as "Underwriters", whose names and the proportions underwritten by them which will be supplied on application, can be ascertained by reference to the said Contract which bears the Seal of Lloyd's Policy Signing Office, and in consideration of the premium specified herein the said Underwriters are hereby bound, each for his own part and not for another, their Heirs, Executors and Administrators, to insure in accordance with the terms and conditions contained herein or endorsed hereon.
+
+Any enquiry or complaint should be addressed in the first instance to your Broker/Insurer. If you are not satisfied with the way a complaint has been dealt with you may ask the Complaints Department at Lloyd's to review your case without prejudice to your rights in law. The address is: Complaints Department, Lloyd's, One Lime Street, London, EC3M 7HA. Telephone: 0207 327 5693/6059 or email complaints@lloyds.com.
+
+IN WITNESS WHEREOF this Certificate has been signed at LONDON on [#Long Issue Date#].
+
+
+
+By Authorised Signatory
+
+Tom Williams
+
+Certua Protect Ltd
+
+
+Underwritten by certain syndicates at Lloyd's.
+
+Certua Protect Ltd is an authorised Lloyd’s coverholder and has authority to enter into contracts of insurance on behalf of the Lloyd’s underwriting members of Lloyd’s syndicates 623 and 2623 which are managed by Beazley Furlonge Limited.
+ 
+
+Beazley Medical Malpractice Insurance
+
+This Insurance contains some particularly important conditions which the Insured must satisfy or the Insured could lose some or all of the cover provided. Because these are particularly important, the Underwriters want to draw the Insured’s attention to them and they will highlight them in bold and capital letters within the Policy.
+
+Separately, there is also a warranty that the Insured must pay the premium when it is due, including when any instalment is due. If the Insured fails to do so, then the Insured’s cover will be suspended and the Policy may be cancelled.
+
+NOTICE: This Policy provides coverage on a Claims Made and Reported Basis. Except to such extent as may otherwise be provided herein, this insurance applies only to those Claims which are first made against the Insured and reported in writing to the underwriters during the Policy Period or Extended Reporting Period (if applicable). Damages and Claims Expenses shall be applied against the deductible. Claims Expenses under this Policy shall reduce and may exhaust the Limits of Liability. Please review the coverage afforded under this Insurance Policy carefully and discuss the coverage hereunder with your insurance agent or broker.
+This schedule along with the completed and signed Proposal and the Policy with endorsements shall constitute the contract between the Insureds and underwriters.
+
+Policy Number:	[#Policy Number#]
+Wording:	Beazley PE Medmal Wording
+Underwriter:  	Beazley Lloyd’s Syndicate AFB 2623 (82%) / 623 (18%)
+Coverholder: 	Certua Protect Ltd
+
+
+Item 1.	Named Insured
+
+   [#First Name#] [#Last Name#]
+
+Address
+
+[#Organisation Address#]
+
+Item 2.	Policy Period
+
+From: 	[#Policy Effective Date#]
+
+To:		[#Policy End Date#]
+
+Both days inclusive local standard time at the address of the named insured stated in the Schedule.
+
+Item 3.	Insuring Agreements and Extensions Included
+
+INSURING AGREEMENTS  	Included
+Insuring Agreement I.1.A, Medical Malpractice	Yes
+Insuring Agreement I.1.B, Professional Indemnity	Yes
+Insuring Agreement I.1.C, Public or General Liability	No
+Insuring Agreement I.1.D, Product Liability	No
+Insuring Agreement I.1.E, Loss of Documents	Yes
+Insuring Agreement I.1 .F., Breach of Professional Confidentiality	Yes
+Insuring Agreement I.1.G, Libel and Slander	Yes
+Insuring Agreement I.1.H, Inquest Costs  	Yes
+
+
+Item 4.	Limits of Liability
+
+
+A.	Insuring Agreements
+
+1.	Medical Malpractice (Insuring Agreement I.1.A)
+
+Limit of Liability (Each Claim including Claims Expenses) 		GBP 1,000,000
+
+2.	Professional Indemnity (Insuring Agreement I.1.B)
+
+Limit of Liability (Each Claim including Claims Expenses) 		GBP 1,000,000
+
+3.	General/Public Liability (Insuring Agreement I.1.C)
+
+Limit of Liability (Each Claim including Claims Expenses) 		Not Applicable
+
+4.	Product Liability (Insuring Agreement I.1.D)
+
+Limit of Liability										Not Applicable
+
+5.	Loss of Documents (Insuring Agreement I.1.E)
+
+Limit of Liability (Each Claim including Claims Expenses) 		GBP 25,000
+
+6.	Breach of Professional Confidentiality (Insuring Agreement I.1.F)
+
+Limit of Liability (Each Claim including Claims Expenses) 		GBP 25,000
+
+7.	Libel and Slander (Insuring Agreement I.1.G)
+
+Limit of Liability (Each Claim including Claims Expenses) 		GBP 25,000
+
+8.	Inquest Costs (Insuring Agreement I.1.H)
+
+Limit of Liability (Each Inquest) 							GBP 25,000
+
+9.	Policy Aggregate Limit of Liability including Claims Expenses	GBP 1,000,000
+
+
+Item 5.	Deductible 											GBP	1,000
+
+Each Claim including Claims Expenses unless specified within the Conditions section
+Item 6.	Premium									GBP [#Total Payable Premium#]
+
+Premium plus Insurance Premium Tax at 12.0%, payable by the Named Insured up to 30 days from the collection date
+
+Premium 	[#Gross Premium#]
+Insurance Premium Tax at 12%: 	[#IPT Premium#]
+Policy fees	[#Policy Fees#]
+Total payable 	[#Total Payable Premium#]
+
+Item 7.	Extended Reporting Period
+
+Not Applicable
+
+Item 8.	Retroactive Date
+
+[#Retroactive Date#]
+
+Item 9.	Notifications under this Policy
+
+Chris Cloke-Browne at broking@mrslenterprise.com
+
+Item 10.	Insured’s Business
+
+            [#Level Of Cover#]
+
+Item 11.	Currency
+
+GBP
+
+Item 12.	Medical Practitioners
+
+Not Applicable
+
+Item 13.	Subsidiaries and Joint Ventures
+
+Not Applicable
+
+Item 14.	Additional Medical Practitioners
+
+Not Applicable
+Item 15.	Additional Other Staff
+
+Not Applicable
+
+Item 16.	Jurisdictional Limits (countries where the claim is first made against the Insured)
+
+Great Britain, Northern Ireland, the Isle of Man and the Channel Islands
+
+Item 17.	Endorsements Effective at Inception
+
+-	Healthcare Scheduled Communicable Disease Endorsement
+
+-	Data protection short form notice
+
+-	Named insured facility endorsement
+
+-	Patient Examination endorsement
+
+-	Obstetrics Endorsement
+
+-	Statement of Facts for Medico-legal services – as attached
+ 
+Healthcare Communicable Disease endorsement
+
+This endorsement modifies insurance provided under the following:
+
+BEAZLEY MEDICAL MALPRACTICE INSURANCE
+
+In consideration of the premium charged for the Policy, it is hereby understood and agreed that:
+
+1.	The following exclusion is added to Clause V. EXCLUSIONS APPLICABLE TO ALL INSURING AGREEMENTS:
+
+Communicable Disease
+
+arising out of or resulting from the actual or alleged transmission of or exposure to a Communicable Disease.
+
+2.	For the purposes of this endorsement the following definition is added:
+
+Communicable Disease means an illness caused by an infectious agent or its toxic products, including but not limited to bacteria and virus, and that occurs through the transmission of the infectious agent or its toxic products from an infected individual or via an animal, vector or the inanimate environment to a susceptible animal or human host. Examples of Communicable Diseases are, including but not limited, HIV/AIDS, Hepatitis, Sexually Transmitted Diseases, Ebola and Tuberculosis.
+
+
+All other terms and conditions of this Policy remain unchanged.
+ 
+Data Protection short form notice
+
+Your personal information notice
+
+Who we are
+
+We are the insurers identified in the contract of insurance and/or in the certificate of
+insurance.
+
+The basics
+
+We collect and use relevant information about you to provide you with your insurance cover
+or the insurance cover that benefits you and to meet our legal obligations.
+
+This information includes details such as your name, address and contact details and any
+other information that we collect about you in connection with the insurance cover from
+which you benefit. This information may include more sensitive details such as information
+about your health and any criminal convictions you may have.
+
+In certain circumstances, we may need your consent to process certain categories of
+information about you (including sensitive details such as information about your health
+and any criminal convictions you may have). Where we need your consent, we will ask you
+for it separately. You do not have to give your consent and you may withdraw your consent
+at any time. However, if you do not give your consent, or you withdraw your consent, this
+may affect our ability to provide the insurance cover from which you benefit and may
+prevent us from providing cover for you or handling your claims.
+
+The way insurance works means that your information may be shared with, and used by,
+a number of third parties in the insurance sector for example, insurers, agents or brokers,
+reinsurers, loss adjusters, sub-contractors, regulators, law enforcement agencies, fraud and
+crime prevention and detection agencies and compulsory insurance databases. We will only
+disclose your personal information in connection with the insurance cover that we provide
+and to the extent required or permitted by law.
+
+Other people’s details you provide to us
+Where you provide us or your agent or broker with details about other people, you must
+provide this notice to them.
+
+Want more details?
+For more information about how we use your personal information please see our full
+privacy notice(s), which is/are available online on our website(s) or in other formats on
+request.
+
+Contacting us and your rights
+You have rights in relation to the information we hold about you, including the right to
+access your information. If you wish to exercise your rights, discuss how we use your
+information or request a copy of our full privacy notice(s), please contact us on
+DPO@beazley.com or the agent or broker that arranged this insurance.
+
+LMA9151
+25 April 2018
+ 
+Named Insured Facilities Endorsement
+
+This endorsement modifies the Medical Malpractice Insurance Policy and shall be read as if incorporated within it.
+
+Named Insured Facilities Definition
+Section II, Definitions Named Insured’s Facilities is deleted and replaced with the following:
+
+Named Insured’s Facilities means all locations at which the Insured’s Business
+is rendered, or fail to be rendered, by an Insured, acting within the scope of that
+person’s duties to the Named Insured.
+
+All other terms and conditions of this Policy remain unchanged.
+ 
+Obstetric Work Endorsement
+This endorsement modifies the Medical Malpractice Insurance Policy and shall be read as if incorporated within it.
+
+Obstetric Work Exclusion
+
+This Insurance does not apply to Damages or Claims Expenses incurred with respect to any Claim or any Inquest Costs arising out of or resulting from all obstetric work, including but not limited to, foetal scanning or maternity services of any kind.
+All other terms and conditions of this Policy remain unchanged.
+ 
+Patient Examination Endorsement
+This endorsement modifies the Medical Malpractice Insurance Policy and shall be read as if incorporated within it.
+
+Patient examination Exclusion
+
+This Insurance does not apply to Damages or Claims Expenses incurred with respect to any Claim or any Inquest Costs arising out of or resulting from any patient examinations undertaken as part of the insured’s business.
+All other terms and conditions of this Policy remain unchanged.

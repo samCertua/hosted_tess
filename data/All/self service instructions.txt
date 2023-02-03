@@ -1,0 +1,17 @@
+To change your password:
+1. Login to the insurance portal
+2. In the top right hand corner, click the person icon
+3. Click change password
+4. Enter existing and new password and click "change password"
+
+To change your email address/contact information:
+1. Login to the insurance portal
+2. On login, you are taken to "My Cover" page. Click View policy on the policy you wish to update.
+3. In your details box, click edit
+4. Update details as instructed. Here you can change your name, email address, phone number and address
+
+To change your direct debit:
+1. Login to the insurance portal
+2. On login, you are taken to "My Cover" page. Click View policy on the policy you wish to update.
+3. In Payment details box, click edit
+4. Change direct debit details as instructed. Here you will need to enter your new account holder name, sort code and account number. If you are changing your bank details within five or less working days of your next payment collection day then we will use your old bank details for your upcoming payment. Please ensure that funds are available for this.

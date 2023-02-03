@@ -73,7 +73,7 @@ def ask_tess(logging_queue, session_id,  query, index, chunks_dict, user_message
             top_k=5,
             include_metadata=True,
             filter={
-                "distributor": {"$eq": distributor.lower()}
+                "distributor": {"in": [distributor.lower(), "all"]}
             },
         )["matches"]
     paragraphs = [chunks_dict[i["id"]] for i in matches]

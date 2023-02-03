@@ -78,12 +78,15 @@ def create_structures(chunks, embedded_chunks, chunk_metadata):
         embedding_tuples.append((i, e, m))
     return chunk_dicts, embedding_tuples
 
-def add_document(document: str, context = None):
-    with open("./data/"+document, 'r', encoding='utf-8') as fp:
+def add_document(distributor: str, document: str, context = None):
+    with open(f'./data/{distributor}/{document}', 'r', encoding='utf-8') as fp:
         text = fp.read()
-    distributor = document.replace(".txt","")
+    doc_name = document.replace(".txt","")
     if context is None:
-        context = f'The following is an exert from a document outlining terms and conditions for a life insurance product from the distributor {distributor}:\n'
+        if distributor=="All":
+            context = f'The following is an exert from a document outlining {doc_name} for an insurance product:\n'
+        else:
+            context = f'The following is an exert from a document outlining {doc_name} for an insurance product from the distributor {distributor}:\n'
     chunks = doc_chunker(text, 500, 150)
     chunks = add_context(chunks, context)
     chunk_metadata = [{"distributor": distributor.lower()} for c in chunks]
@@ -150,13 +153,28 @@ def reinit_pinecone():
     index.delete(deleteAll=True)
     index.upsert(embedding_tuples)
 
+def add_documents():
+    distributors = os.listdir("./data")
+    for d in distributors:
+        docs = os.listdir(f'./data/{d}')
+        for doc in docs:
+            add_document(d, doc)
+
 def main():
     # for f in os.listdir('./data'):
     #     add_document(f)
     # add_document("MHFAE.txt")
-    # add_document("MRSL.txt", context=f'The following is an exert from a document outlining key facts for a life insurance product from the distributor MRSL:\n')
+    # add_document("terms and conditions.txt", context=f'The following is an exert from a document outlining key facts.txt for a life insurance product from the distributor MRSL:\n')
     # build_dict()
+    # reinit_pinecone()
+    # add_documents()
+    distributors = ["MRSL", "All"]
+    for d in distributors:
+        docs = os.listdir(f'./data/{d}')
+        for doc in docs:
+            add_document(d, doc)
     reinit_pinecone()
+    build_dict()
 
 
 if __name__ == '__main__':
