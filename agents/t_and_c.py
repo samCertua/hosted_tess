@@ -34,6 +34,22 @@ def build_gpt_query(paragraphs, query, user_policy_info, user_messages, ai_messa
     gpt_query += f'Query: {query}\nResponse:'
     return gpt_query
 
+def embed_query(query, user_messages, ai_messages):
+    new_query = ""
+    if len(ai_messages)>1:
+        new_query += f'Query: {user_messages[-2]}\n'
+        new_query += f'Response: {ai_messages[-2]}\n'
+        new_query+=f'Query: {user_messages[-1]}\n'
+        new_query+=f'Response: {ai_messages[-1]}\n'
+    if len(ai_messages)==1:
+        new_query+=f'Query: {user_messages[-1]}\n'
+        new_query+=f'Response: {ai_messages[-1]}\n'
+    new_query += f'Query: {query}'
+    embedded_query = openai.Embedding.create(
+        input=new_query,
+        model="text-embedding-ada-002"
+    )['data'][0]['embedding']
+    return embedded_query
 
 def distributor_matches(index, query, distributors, number_of_results):
     results = []
@@ -54,10 +70,7 @@ def distributor_matches(index, query, distributors, number_of_results):
     return results[:number_of_results]
 
 def ask_tess(logging_queue, session_id,  query, index, chunks_dict, user_messages, ai_messages, prompt, distributor = None, user_policy_info = ""):
-    embedded_query = openai.Embedding.create(
-        input=query,
-        model="text-embedding-ada-002"
-    )['data'][0]['embedding']
+    embedded_query = embed_query(query, user_messages, ai_messages)
     if distributor is None:
         service = "T&C admin"
         # matches = distributor_matches(index, embedded_query, distributors, number_of_results=5)

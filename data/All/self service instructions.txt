@@ -23,3 +23,6 @@ To reset your password if you have forgotten it:
 4. Shortly, you shall receive an email with a link, click this (links expire within 48 hours)
 5. Change your password and submit
 6. Your password has now successfully been changed
+
+If you have forgotten your username:
+Please contact customer support

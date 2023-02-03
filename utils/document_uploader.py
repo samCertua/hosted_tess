@@ -168,7 +168,7 @@ def main():
     # build_dict()
     # reinit_pinecone()
     # add_documents()
-    distributors = ["All"]
+    distributors = ["MRSL", "All"]
     for d in distributors:
         docs = os.listdir(f'./data/{d}')
         for doc in docs:
